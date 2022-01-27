@@ -13,7 +13,7 @@
 <div class="order-box">
     <a href="/search/rank">
         <div class="order">
-            <p class="rank">ランキング</p>
+            <p class="rank-main">ランキング</p>
         </div>
     </a>
     <a href="/search/new">

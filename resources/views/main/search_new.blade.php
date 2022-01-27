@@ -18,7 +18,7 @@
     </a>
     <a href="/search/new">
         <div class="order">
-            <p>最新</p>
+            <p class="new">最新</p>
         </div>
     </a>
     <a href="/search/video">

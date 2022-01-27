@@ -26,3 +26,19 @@ Route::get('/mypage', function () {
 Route::get('/search', function () {
     return view('main.search');
 });
+
+Route::get('/search/rank', function () {
+    return view('main.search_rank');
+});
+
+Route::get('/search/new', function () {
+    return view('main.search_new');
+});
+
+Route::get('/search/video', function () {
+    return view('main.search_video');
+});
+
+Route::get('/message', function () {
+    return view('main.message');
+});

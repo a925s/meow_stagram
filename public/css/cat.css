@@ -394,11 +394,40 @@ search
     border-bottom: 0.1px solid #A8998C;
     display: flex;
 }
-.order-box .order{
+.order-box a{
+    display: block;
     width: 100%;
     text-align: center;
+    text-decoration: none;
 }
-.order-box .order p{}
+
+.order-box .order{
+    line-height: 47px;
+}
+.order-box .order p.rank{
+    width: 70px;
+}
+.order-box .order p{
+    width: 50px;
+    margin: auto;
+    color: #000000;
+    font-weight: bold;
+}
+.order-box .order p:hover{
+    border-bottom: 3px solid #78614D;
+}
+
+.order-box .order p.rank-main{
+    border-bottom: 3px solid #78614D;
+    width: 70px;
+}
+
+.order-box .order p.new{
+    border-bottom: 3px solid #78614D;
+}
+.order-box .order p.video{
+    border-bottom: 3px solid #78614D;
+}
 
 .search-posts{
     display: flex;
@@ -430,6 +459,48 @@ search
     transform: translateY(-50%) translateX(-50%);
     -webkit- transform: translateY(-50%) translateX(-50%);
 }
+
+/**
+message
+****/
+.messages{}
+.messages a{
+    display: block;
+    height: 100px;
+    text-decoration: none;
+}
+.messages .message-box{
+    height: 100px;
+    display: flex;
+    border-bottom: 0.1px solid #A8998C;
+    position: relative;
+}
+.messages .message-box .message-icon{
+    margin: 0 30px;
+    padding: 10px;
+    width: 100px;
+}
+.messages .message-box .message-icon img{
+    width: 100%;
+    border-radius: 50%;
+}
+.messages .message-box .message-name{
+}
+.messages .message-box .message-name h2{
+    color: #000000;
+    font-size: 18px;
+    margin: 20px 0 0 0;
+}
+.messages .message-box .message-name p{
+    font-size: 15px;
+    margin: 10px 0 0 0;
+    color: #A8998C;
+}
+.messages .message-box .message-name span{
+    position: absolute;
+    right: 5px;
+}
+
 
 
 

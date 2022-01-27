@@ -23,7 +23,7 @@
     </a>
     <a href="/search/video">
         <div class="order">
-            <p>動画</p>
+            <p class="video">動画</p>
         </div>
     </a>
 </div>
