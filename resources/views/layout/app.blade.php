@@ -30,13 +30,13 @@
                     <li class="nav-item"><a href="#" class="nav-link"><img src="{{ asset('/img/search.svg') }}" alt="検索アイコン"><p>検索</p></a></li>
                     <li class="nav-item"><a href="#" class="nav-link"><img src="{{ asset('/img/notification.png') }}" alt="通知アイコン"><p>通知</p></a></li>
                     <li class="nav-item"><a href="#" class="nav-link"><img src="{{ asset('/img/send.png') }}" alt="メッセージアイコン"><p>メッセージ</p></a></li>
-                    <li class="nav-item"><a href="#" class="nav-link"><img src="{{ asset('/img/bookmark.svg') }}" alt="ブックマークアイコン"><p>ブックマーク</p></a></li>
                     <li class="nav-item"><a href="#" class="nav-link"><img src="{{ asset('/img/post.png') }}" alt="投稿アイコン"><p>投稿</p></a></li>
-                    <li class="nav-item my-icon"><a href="#" class="nav-link my-icon"><img src="{{ asset('/img/cat_favicon.png') }}" alt="マイアイコン"></a></li>
+                    <li class="nav-item my-icon"><a href="#" class="nav-link my-icon"><img src="{{ asset('/img/cat_favicon.png') }}" class="my-icon" alt="マイアイコン"></a></li>
                 </ul>
             </div>
         </div>
         <div class="main">
+            <div class="ditch"></div>
             @yield('main')
         </div>
     </div>
