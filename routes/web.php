@@ -42,3 +42,6 @@ Route::get('/search/video', function () {
 Route::get('/message', function () {
     return view('main.message');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
