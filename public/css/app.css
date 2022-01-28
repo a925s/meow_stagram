@@ -143,13 +143,13 @@ sup {
 }
 
 a {
-    color: #3490dc;
+    color: #78614D;
     text-decoration: none;
     background-color: transparent;
 }
 
 a:hover {
-    color: #1d68a7;
+    color: #78614D;
     text-decoration: underline;
 }
 
@@ -2434,21 +2434,20 @@ a.btn.disabled, fieldset:disabled a.btn {
 
 .btn-primary:focus, .btn-primary.focus {
     color: #fff;
-    background-color: #227dc7;
-    border-color: #2176bd;
-    box-shadow: 0 0 0 0.2rem rgba(82, 161, 225, 0.5);
+    background-color: #78614D;
+    border-color: #78614D;
 }
 
 .btn-primary.disabled, .btn-primary:disabled {
     color: #fff;
-    background-color: #3490dc;
-    border-color: #3490dc;
+    background-color: #78614D;
+    border-color: #78614D;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
     color: #fff;
-    background-color: #2176bd;
-    border-color: #1f6fb2;
+    background-color: #78614D;
+    border-color: #78614D;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-primary.dropdown-toggle:focus {
@@ -2527,37 +2526,37 @@ a.btn.disabled, fieldset:disabled a.btn {
 
 .btn-info {
     color: #212529;
-    background-color: #6cb2eb;
-    border-color: #6cb2eb;
+    background-color: #78614D;
+    border-color: #78614D;
 }
 
 .btn-info:hover {
     color: #fff;
-    background-color: #4aa0e6;
-    border-color: #3f9ae5;
+    background-color: #78614D;
+    border-color: #78614D;
 }
 
 .btn-info:focus, .btn-info.focus {
     color: #fff;
-    background-color: #4aa0e6;
-    border-color: #3f9ae5;
-    box-shadow: 0 0 0 0.2rem rgba(97, 157, 206, 0.5);
+    background-color: #78614D;
+    border-color: #78614D;
+    box-shadow: 0 0 0 0.2rem #78614D;
 }
 
 .btn-info.disabled, .btn-info:disabled {
     color: #212529;
-    background-color: #6cb2eb;
-    border-color: #6cb2eb;
+    background-color: #78614D;
+    border-color: #78614D;
 }
 
 .btn-info:not(:disabled):not(.disabled):active, .btn-info:not(:disabled):not(.disabled).active, .show > .btn-info.dropdown-toggle {
     color: #fff;
-    background-color: #3f9ae5;
-    border-color: #3495e3;
+    background-color: #78614D;
+    border-color: #78614D;
 }
 
 .btn-info:not(:disabled):not(.disabled):active:focus, .btn-info:not(:disabled):not(.disabled).active:focus, .show > .btn-info.dropdown-toggle:focus {
-    box-shadow: 0 0 0 0.2rem rgba(97, 157, 206, 0.5);
+    box-shadow: 0 0 0 0.2rem #78614D;
 }
 
 .btn-warning {
@@ -2701,29 +2700,29 @@ a.btn.disabled, fieldset:disabled a.btn {
 }
 
 .btn-outline-primary {
-    color: #3490dc;
-    border-color: #3490dc;
+    color: #78614D;
+    border-color: #78614D;
 }
 
 .btn-outline-primary:hover {
     color: #fff;
-    background-color: #3490dc;
-    border-color: #3490dc;
+    background-color: #78614D;
+    border-color: #78614D;
 }
 
 .btn-outline-primary:focus, .btn-outline-primary.focus {
-    box-shadow: 0 0 0 0.2rem rgba(52, 144, 220, 0.5);
+    box-shadow: 0 0 0 0.2rem #78614D;
 }
 
 .btn-outline-primary.disabled, .btn-outline-primary:disabled {
-    color: #3490dc;
+    color: #78614D;
     background-color: transparent;
 }
 
 .btn-outline-primary:not(:disabled):not(.disabled):active, .btn-outline-primary:not(:disabled):not(.disabled).active, .show > .btn-outline-primary.dropdown-toggle {
     color: #fff;
-    background-color: #3490dc;
-    border-color: #3490dc;
+    background-color: #78614D;
+    border-color: #78614D;
 }
 
 .btn-outline-primary:not(:disabled):not(.disabled):active:focus, .btn-outline-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-primary.dropdown-toggle:focus {
@@ -2791,22 +2790,22 @@ a.btn.disabled, fieldset:disabled a.btn {
 }
 
 .btn-outline-info {
-    color: #6cb2eb;
-    border-color: #6cb2eb;
+    color: #78614D;
+    border-color: #78614D;
 }
 
 .btn-outline-info:hover {
     color: #212529;
-    background-color: #6cb2eb;
-    border-color: #6cb2eb;
+    background-color: #78614D;
+    border-color: #78614D;
 }
 
 .btn-outline-info:focus, .btn-outline-info.focus {
-    box-shadow: 0 0 0 0.2rem rgba(108, 178, 235, 0.5);
+    box-shadow: 0 0 0 0.2rem #78614D;
 }
 
 .btn-outline-info.disabled, .btn-outline-info:disabled {
-    color: #6cb2eb;
+    color: #78614D;
     background-color: transparent;
 }
 
@@ -3532,22 +3531,22 @@ input[type=submit].btn-block, input[type=reset].btn-block, input[type=button].bt
 
 .custom-control-input:checked ~ .custom-control-label::before {
     color: #fff;
-    border-color: #3490dc;
-    background-color: #3490dc;
+    border-color: #78614D;
+    background-color: #78614D;
 }
 
 .custom-control-input:focus ~ .custom-control-label::before {
-    box-shadow: 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
+    box-shadow: 0 0 0 0.2rem #78614D;
 }
 
 .custom-control-input:focus:not(:checked) ~ .custom-control-label::before {
-    border-color: #a1cbef;
+    border-color: #78614D;
 }
 
 .custom-control-input:not(:disabled):active ~ .custom-control-label::before {
     color: #fff;
-    background-color: #cce3f6;
-    border-color: #cce3f6;
+    background-color: #78614D;
+    border-color: #78614D;
 }
 
 .custom-control-input[disabled] ~ .custom-control-label, .custom-control-input:disabled ~ .custom-control-label {
@@ -3597,8 +3596,8 @@ input[type=submit].btn-block, input[type=reset].btn-block, input[type=button].bt
 }
 
 .custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::before {
-    border-color: #3490dc;
-    background-color: #3490dc;
+    border-color: #78614D;
+    background-color: #78614D;
 }
 
 .custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::after {
@@ -3606,11 +3605,11 @@ input[type=submit].btn-block, input[type=reset].btn-block, input[type=button].bt
 }
 
 .custom-checkbox .custom-control-input:disabled:checked ~ .custom-control-label::before {
-    background-color: rgba(52, 144, 220, 0.5);
+    background-color: #78614D;
 }
 
 .custom-checkbox .custom-control-input:disabled:indeterminate ~ .custom-control-label::before {
-    background-color: rgba(52, 144, 220, 0.5);
+    background-color: #78614D;
 }
 
 .custom-radio .custom-control-label::before {
@@ -3622,7 +3621,7 @@ input[type=submit].btn-block, input[type=reset].btn-block, input[type=button].bt
 }
 
 .custom-radio .custom-control-input:disabled:checked ~ .custom-control-label::before {
-    background-color: rgba(52, 144, 220, 0.5);
+    background-color: #78614D;
 }
 
 .custom-switch {
@@ -3658,7 +3657,7 @@ input[type=submit].btn-block, input[type=reset].btn-block, input[type=button].bt
 }
 
 .custom-switch .custom-control-input:disabled:checked ~ .custom-control-label::before {
-    background-color: rgba(52, 144, 220, 0.5);
+    background-color: #78614D;
 }
 
 .custom-select {
@@ -3680,9 +3679,9 @@ input[type=submit].btn-block, input[type=reset].btn-block, input[type=button].bt
 }
 
 .custom-select:focus {
-    border-color: #a1cbef;
+    border-color: #78614D;
     outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
+    box-shadow: 0 0 0 0.2rem #78614D;
 }
 
 .custom-select:focus::-ms-value {
@@ -4731,14 +4730,14 @@ input[type=submit].btn-block, input[type=reset].btn-block, input[type=button].bt
     padding: 0.5rem 0.75rem;
     margin-left: -1px;
     line-height: 1.25;
-    color: #3490dc;
+    color: #78614D;
     background-color: #fff;
     border: 1px solid #dee2e6;
 }
 
 .page-link:hover {
     z-index: 2;
-    color: #1d68a7;
+    color: #78614D;
     text-decoration: none;
     background-color: #e9ecef;
     border-color: #dee2e6;
@@ -4848,12 +4847,12 @@ a.badge:hover, a.badge:focus {
 
 .badge-primary {
     color: #fff;
-    background-color: #3490dc;
+    background-color: #78614D;
 }
 
 a.badge-primary:hover, a.badge-primary:focus {
     color: #fff;
-    background-color: #2176bd;
+    background-color: #78614D;
 }
 
 a.badge-primary:focus, a.badge-primary.focus {
@@ -9964,4 +9963,9 @@ a.text-dark:hover, a.text-dark:focus {
     .text-form {
         padding:0;
     }
+}
+
+.form-check input#remember[type="checkbox"]:checked+label::before {
+    /*チェックしたときの箱の色を変える*/
+    background: #78614D;
 }

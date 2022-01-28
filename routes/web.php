@@ -44,4 +44,4 @@ Route::get('/message', function () {
 });
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/signin', 'HomeController@index')->name('home');

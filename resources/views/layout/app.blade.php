@@ -18,6 +18,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('/css/cat.css') }}">
 
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous" defer></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous" defer></script>
+
     <title>@yield('title')</title>
 </head>
 <body>
@@ -30,11 +35,35 @@
                     <li class="nav-item"><a href="#" class="nav-link"><img src="{{ asset('/img/search.svg') }}" alt="検索アイコン"><p>検索</p></a></li>
                     <li class="nav-item"><a href="#" class="nav-link"><img src="{{ asset('/img/notification.png') }}" alt="通知アイコン"><p>通知</p></a></li>
                     <li class="nav-item"><a href="#" class="nav-link"><img src="{{ asset('/img/send.png') }}" alt="メッセージアイコン"><p>メッセージ</p></a></li>
-                    <li class="nav-item"><a href="#" class="nav-link"><img src="{{ asset('/img/post.png') }}" alt="投稿アイコン"><p>投稿</p></a></li>
+                    <li class="nav-item"><a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#js-modal"><img src="{{ asset('/img/post.png') }}" alt="投稿アイコン"><p>投稿</p></a></li>
                     <li class="nav-item my-icon"><a href="#" class="nav-link my-icon"><img src="{{ asset('/img/cat_favicon.png') }}" class="my-icon" alt="マイアイコン"></a></li>
                 </ul>
             </div>
         </div>
+
+        <div class="modal fade" id="js-modal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form action="#" method="post" enctype="multipart/form-data">
+                        <div class="modal-header">
+                            <h2 class="modal-title">新規投稿を作成</h2>
+                            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <input type="file" class="form-control form-control-sm" name="#">
+                            </div>
+                            <textarea class="textarea form-control mb-4" name="body" placeholder="キャプションを入力…" maxlength="200" required></textarea>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn" type="submit">投稿する</button>
+                            <button class="btn btn-reverse" data-bs-dismiss="modal">キャンセル</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
         <div class="main">
             <div class="ditch"></div>
             @yield('main')

@@ -13,7 +13,7 @@
 
                         <div class="form-group">
                             <div class="text-form">
-                                <input id="nickname" type="text" class="form-control @error('nickname') is-invalid @enderror" name="nickname" value="{{ old('nickname') }}" placeholder="ニックネーム" required >
+                                <input id="nickname" type="text" class="form-control @error('nickname') is-invalid @enderror" name="nickname" value="{{ old('nickname') }}" placeholder="ニックネーム" required autocomplete="nickname">
 
                                 @error('nickname')
                                     <span class="invalid-feedback" role="alert">
@@ -25,7 +25,7 @@
 
                         <div class="form-group">
                             <div class="text-form">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="ユーザー名" required autocomplete="name" autofocus>
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="ユーザー名" required autocomplete="name">
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">

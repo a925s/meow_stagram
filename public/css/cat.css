@@ -131,6 +131,42 @@ side
     }
 }
 
+.modal-content {
+    height: 600px;
+}
+
+.modal-content h2 {
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.btn-close:focus {
+    box-shadow: none;
+}
+
+.modal-content .textarea {
+    height: 350px;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #A8998C;
+}
+
+.modal-footer button {
+    background-color: #78614D;
+    color: #ffffff;
+}
+
+.modal-footer button:hover {
+    background-color: #78614D;
+    color: #ffffff;
+}
+
+.modal-footer button:focus {
+    box-shadow: none;
+}
+
 /**
 ditch
 ****/
@@ -142,8 +178,6 @@ ditch
 /**
 main_post
 ****/
-
-
 .posts-box {
 }
 
@@ -276,88 +310,111 @@ mypage
     background-color: #78614D;
     border-color: #78614D;
 }
-.mypage-name{
+
+.mypage-name {
     display: flex;
     height: 150px;
 }
-.mypage-name .my-icon{
+
+.mypage-name .my-icon {
     width: 150px;
     margin: 0 50px 0 50px;
     padding: 30px;
 }
-.mypage-name .my-icon img{
+
+.mypage-name .my-icon img {
     width: 100%;
     border-radius: 50%;
     border: 0.2px solid #ddd;
 }
-.mypage-name .my-name-box{}
-.mypage-name .my-name-box .my-name{
+
+.mypage-name .my-name-box {
+}
+
+.mypage-name .my-name-box .my-name {
     margin-top: 30px;
     display: flex;
     height: 45px;
 }
-.mypage-name .my-name-box .my-name h1{
+
+.mypage-name .my-name-box .my-name h1 {
     font-size: 27px;
     line-height: 45px;
 }
-.mypage-name .my-name-box .my-name p{
+
+.mypage-name .my-name-box .my-name p {
     margin-left: 20px;
     line-height: 45px;
     color: #A8998C;
 }
-.mypage-name .my-name-box .button-box{
+
+.mypage-name .my-name-box .button-box {
     margin-top: 7px;
 }
-.mypage-name .my-name-box .button-box a{}
-.count{
+
+.mypage-name .my-name-box .button-box a {
+}
+
+.count {
     border-top: 0.1px solid #A8998C;
     border-bottom: 0.1px solid #A8998C;
     display: flex;
     height: 75px;
 }
-.count .count-box{
+
+.count .count-box {
     width: 100%;
     text-align: center;
 }
-.count .line{
+
+.count .line {
     border-right: 0.1px solid #A8998C;
 }
-.count .count-box p{
+
+.count .count-box p {
     margin: 0;
     color: #A8998C;
 }
-.count .count-box p.lang-color{
+
+.count .count-box p.lang-color {
     color: #000000;
     font-weight: bold;
 }
-.mypage-icon{
+
+.mypage-icon {
     display: flex;
     justify-content: space-around;
     height: 40px;
     border-bottom: 0.1px solid #A8998C;
 }
-.mypage-icon .mypage-icon-box{
+
+.mypage-icon .mypage-icon-box {
     width: 40px;
     height: 40px;
     padding: 5px;
 }
-.mypage-icon .mypage-icon-box img{
+
+.mypage-icon .mypage-icon-box img {
     width: 100%;
 }
-.mypage-posts{
+
+.mypage-posts {
     display: flex;
     flex-wrap: wrap;
 }
-.mypage-posts .post-box{
+
+.mypage-posts .post-box {
     width: 50%;
     position: relative;
 }
-.mypage-posts .post-box::before{
+
+.mypage-posts .post-box::before {
     content: "";
     display: block;
     padding-top: 100%;
 }
-.mypage-posts .post-box .post-square-box{
+
+.mypage-posts .post-box .post-square-box {
     position: absolute;
     top: 0;
     left: 0;
@@ -366,7 +423,8 @@ mypage
     border-right: 0.1px solid #A8998C;
     border-bottom: 0.1px solid #A8998C;
 }
-.mypage-posts .post-box .post-square-box img{
+
+.mypage-posts .post-box .post-square-box img {
     position: absolute;
     width: 100%;
     top: 50%;
@@ -378,71 +436,84 @@ mypage
 /**
 search
 ****/
-.search-box{
+.search-box {
     text-align: center;
     height: 70px;
 }
-.search-box .search{line-height: 70px;}
-.search-box .search input{
+
+.search-box .search {
+    line-height: 70px;
+}
+
+.search-box .search input {
     height: 40px;
     width: 80%;
     border: 1px solid #78614D;
     border-radius: 100px;
 }
-.order-box{
+
+.order-box {
     height: 50px;
     border-bottom: 0.1px solid #A8998C;
     display: flex;
 }
-.order-box a{
+
+.order-box a {
     display: block;
     width: 100%;
     text-align: center;
     text-decoration: none;
 }
 
-.order-box .order{
+.order-box .order {
     line-height: 47px;
 }
-.order-box .order p.rank{
+
+.order-box .order p.rank {
     width: 70px;
 }
-.order-box .order p{
+
+.order-box .order p {
     width: 50px;
     margin: auto;
     color: #000000;
     font-weight: bold;
 }
-.order-box .order p:hover{
+
+.order-box .order p:hover {
     border-bottom: 3px solid #78614D;
 }
 
-.order-box .order p.rank-main{
+.order-box .order p.rank-main {
     border-bottom: 3px solid #78614D;
     width: 70px;
 }
 
-.order-box .order p.new{
-    border-bottom: 3px solid #78614D;
-}
-.order-box .order p.video{
+.order-box .order p.new {
     border-bottom: 3px solid #78614D;
 }
 
-.search-posts{
+.order-box .order p.video {
+    border-bottom: 3px solid #78614D;
+}
+
+.search-posts {
     display: flex;
     flex-wrap: wrap;
 }
-.search-posts .post-box{
+
+.search-posts .post-box {
     width: 50%;
     position: relative;
 }
-.search-posts .post-box::before{
+
+.search-posts .post-box::before {
     content: "";
     display: block;
     padding-top: 100%;
 }
-.search-posts .post-box .post-square-box{
+
+.search-posts .post-box .post-square-box {
     position: absolute;
     top: 0;
     left: 0;
@@ -451,7 +522,8 @@ search
     border-right: 0.1px solid #A8998C;
     border-bottom: 0.1px solid #A8998C;
 }
-.search-posts .post-box .post-square-box img{
+
+.search-posts .post-box .post-square-box img {
     position: absolute;
     width: 100%;
     top: 50%;
@@ -463,49 +535,49 @@ search
 /**
 message
 ****/
-.messages{}
-.messages a{
+.messages {
+}
+
+.messages a {
     display: block;
     height: 100px;
     text-decoration: none;
 }
-.messages .message-box{
+
+.messages .message-box {
     height: 100px;
     display: flex;
     border-bottom: 0.1px solid #A8998C;
     position: relative;
 }
-.messages .message-box .message-icon{
+
+.messages .message-box .message-icon {
     margin: 0 30px;
     padding: 10px;
     width: 100px;
 }
-.messages .message-box .message-icon img{
+
+.messages .message-box .message-icon img {
     width: 100%;
     border-radius: 50%;
 }
-.messages .message-box .message-name{
+
+.messages .message-box .message-name {
 }
-.messages .message-box .message-name h2{
+
+.messages .message-box .message-name h2 {
     color: #000000;
     font-size: 18px;
     margin: 20px 0 0 0;
 }
-.messages .message-box .message-name p{
+
+.messages .message-box .message-name p {
     font-size: 15px;
     margin: 10px 0 0 0;
     color: #A8998C;
 }
-.messages .message-box .message-name span{
+
+.messages .message-box .message-name span {
     position: absolute;
     right: 5px;
 }
-
-
-
-
-
-
-
-
-
