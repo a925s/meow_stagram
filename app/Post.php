@@ -13,4 +13,9 @@ class Post extends Model
     public static $rules = [
         'body' => 'required|max:200'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

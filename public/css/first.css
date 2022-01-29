@@ -1,0 +1,84 @@
+/**
+ログイン・会員登録
+****/
+body{
+    background-color: #FFFCF3;
+}
+.navbar {
+    border-bottom: 3px solid #78614D;
+}
+
+.icon-box{
+    height: 60px;
+    width: 60px;
+}
+.icon-box img{
+    width: 100%;
+    border-radius: 50%;
+}
+.navbar-light .navbar-brand{
+    margin: 0 20px;
+    font-weight: bold;
+    color: #78614D;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #A8998C;
+}
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #78614D;
+}
+
+.card{
+    border: 1px solid #A8998C;
+}
+
+.card-header {
+    background-color: #78614D;
+    border-bottom: 1px solid #A8998C;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.form-control{
+    border: 1px solid #A8998C;
+}
+
+.form-control:focus{
+    border-color: #A8998C;
+    box-shadow: none;
+}
+
+.form-check-label {
+    color: #A8998C;
+}
+.btn-primary {
+    background-color: #78614D;
+    border-color: #78614D;
+}
+.btn-primary:hover {
+    background-color: #78614D;
+    border-color: #78614D;
+}
+.btn-primary:focus {
+    background-color: #78614D;
+    border-color: #78614D;
+    box-shadow:none;
+}
+
+.btn-link:focus {
+    box-shadow: none;
+}
+.text-form{
+    padding: 0 100px;
+}
+@media (max-width: 992px) {
+    .text-form{
+    padding: 0 50px;
+}
+}
+@media (max-width: 500px) {
+    .text-form{
+    padding: 0;
+}
+}

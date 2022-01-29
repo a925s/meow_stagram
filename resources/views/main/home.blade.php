@@ -12,8 +12,8 @@
             </div>
             <div class="post-my-name">
                 <a href="#">
-                    <span class="nickname">{{ $post->nickname }}</span>
-                    <span class="user-name">@{{ $post->name }}</span>
+                    <span class="nickname">{{ $post->user->nickname }}</span>
+                    <span class="user-name">{{ '@'.$post->user->name }}</span>
                 </a>
             </div>
         </div>
@@ -50,7 +50,7 @@
         <div class="text-box">
             <p class="like-count">いいね！10件</p>
             <p>{{ $post->body }}</p>
-            <p class="post-date">21時間前</p>
+            <p class="post-date">{{ $post->created_at->diffForHumans() }}</p>
         </div>
     </div>
     @endforeach

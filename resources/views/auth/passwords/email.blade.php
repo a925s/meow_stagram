@@ -18,7 +18,7 @@
                         @csrf
 
                         <div class="form-group">
-                            <div class="col-md-6">
+                            <div class="email">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="メールアドレス" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
