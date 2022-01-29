@@ -15,9 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', function () {
-    return view('main.home');
-});
+Route::get('/home', 'PostController@getHomePost');
 
 Route::get('/mypage/post', function () {
     return view('main.mypage_post');

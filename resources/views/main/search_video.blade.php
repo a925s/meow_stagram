@@ -29,17 +29,17 @@
 </div>
 <div class="search-posts">
     <div class="post-box">
-        <div class="post-square-box">
+        <div class="photo-box">
             <img src="{{ asset('/img/post1.jpg') }}" alt="投稿写真">
         </div>
     </div>
     <div class="post-box">
-        <div class="post-square-box">
+        <div class="photo-box">
             <img src="{{ asset('/img/post2.jpg') }}" alt="投稿写真">
         </div>
     </div>
     <div class="post-box">
-        <div class="post-square-box">
+        <div class="photo-box">
             <video src="{{ asset('/img/cat-video.mp4') }}" autoplay loop playsinline></video>
         </div>
     </div>

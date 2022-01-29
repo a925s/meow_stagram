@@ -14,6 +14,8 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+    <script src="{{ mix('js/cat.js') }}"></script>
+
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('/css/cat.css') }}">
@@ -44,7 +46,7 @@
         <div class="modal fade" id="js-modal" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <form action="/post" method="post" accept=".png, .jpg, .jpeg, .gif, .mp4, .mov, .wmv" enctype="multipart/form-data">
+                    <form action="/post" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="modal-header">
                             <h2 class="modal-title">新規投稿を作成</h2>
@@ -52,7 +54,7 @@
                         </div>
                         <div class="modal-body">
                             <div class="mb-3">
-                                <input type="file" class="form-control form-control-sm" name="post_image" required>
+                                <input type="file" class="form-control form-control-sm" name="post_img" required>
                             </div>
                             <input type="text" class="form-control mb-4" name="body" placeholder="ひとことメッセージ" maxlength="100" required>
                         </div>
