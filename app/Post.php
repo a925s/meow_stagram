@@ -11,6 +11,6 @@ class Post extends Model
     ];
 
     public static $rules = [
-        'body' => 'required'
+        'body' => 'required|max:200'
     ];
 }

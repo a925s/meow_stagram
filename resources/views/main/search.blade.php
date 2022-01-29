@@ -40,7 +40,7 @@
     </div>
     <div class="post-box">
         <div class="post-square-box">
-            <img src="{{ asset('/img/post2.jpg') }}" alt="投稿写真">
+            <video src="{{ asset('/img/cat-video.mp4') }}" autoplay loop playsinline></video>
         </div>
     </div>
 </div>

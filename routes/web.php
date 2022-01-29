@@ -19,8 +19,12 @@ Route::get('/home', function () {
     return view('main.home');
 });
 
-Route::get('/mypage', function () {
-    return view('main.mypage');
+Route::get('/mypage/post', function () {
+    return view('main.mypage_post');
+});
+
+Route::get('/mypage/bookmark', function () {
+    return view('main.mypage_bookmark');
 });
 
 Route::get('/search', function () {
@@ -39,9 +43,15 @@ Route::get('/search/video', function () {
     return view('main.search_video');
 });
 
+Route::get('/notification', function () {
+    return view('main.notification');
+});
+
 Route::get('/message', function () {
     return view('main.message');
 });
 Auth::routes();
 
 Route::get('/signin', 'HomeController@index')->name('home');
+
+Route::post('/post', 'PostController@post');
