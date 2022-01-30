@@ -13,7 +13,7 @@
 <div class="order-box">
     <a href="/search/rank">
         <div class="order">
-            <p class="rank-main">ランキング</p>
+            <p class="rank-main">人気</p>
         </div>
     </a>
     <a href="/search/new">
@@ -28,20 +28,28 @@
     </a>
 </div>
 <div class="search-posts">
+    @foreach($posts as $post)
     <div class="post-box">
-        <div class="photo-box">
-            <img src="{{ asset('/img/post1.jpg') }}" alt="投稿写真">
-        </div>
+        <a href="">
+            <div class="photo-box">
+                @if(file_exists(public_path().'/storage/post_img/'. $post->id .'.jpg'))
+                    <img src="/storage/post_img/{{ $post->id }}.jpg">
+                @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.jpeg'))
+                    <img src="/storage/post_img/{{ $post->id }}.jpeg">
+                @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.png'))
+                    <img src="/storage/post_img/{{ $post->id }}.png">
+                @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.gif'))
+                    <img src="/storage/post_img/{{ $post->id }}.gif">
+                @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.mp4'))
+                    <video src="/storage/post_img/{{ $post->id }}.mp4" autoplay loop playsinline></video>
+                @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.mov'))
+                    <video src="/storage/post_img/{{ $post->id }}.mov" autoplay loop playsinline></video>
+                @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.wmv'))
+                    <video src="/storage/post_img/{{ $post->id }}.wmv" autoplay loop playsinline></video>
+                @endif
+            </div>
+        </a>
     </div>
-    <div class="post-box">
-        <div class="photo-box">
-            <img src="{{ asset('/img/post2.jpg') }}" alt="投稿写真">
-        </div>
-    </div>
-    <div class="post-box">
-        <div class="photo-box">
-            <video src="{{ asset('/img/cat-video.mp4') }}" autoplay loop playsinline></video>
-        </div>
-    </div>
+    @endforeach
 </div>
 @endsection

@@ -25,21 +25,13 @@ Route::get('/mypage/bookmark', function () {
     return view('main.mypage_bookmark');
 });
 
-Route::get('/search', function () {
-    return view('main.search');
-});
+Route::get('/search', 'PostController@getSearchPost');
 
-Route::get('/search/rank', function () {
-    return view('main.search_rank');
-});
+Route::get('/search/rank', 'PostController@getSearchRankPost');
 
-Route::get('/search/new', function () {
-    return view('main.search_new');
-});
+Route::get('/search/new', 'PostController@getSearchNewPost');
 
-Route::get('/search/video', function () {
-    return view('main.search_video');
-});
+Route::get('/search/video', 'PostController@getSearchVideoPost');
 
 Route::get('/notification', function () {
     return view('main.notification');

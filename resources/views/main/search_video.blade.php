@@ -13,7 +13,7 @@
 <div class="order-box">
     <a href="/search/rank">
         <div class="order">
-            <p class="rank">ランキング</p>
+            <p>人気</p>
         </div>
     </a>
     <a href="/search/new">
@@ -28,20 +28,22 @@
     </a>
 </div>
 <div class="search-posts">
+    @foreach($posts as $post)
+    @if(file_exists(public_path().'/storage/post_img/'. $post->id .'.mp4') || file_exists(public_path().'/storage/post_img/'. $post->id .'.mov') || file_exists(public_path().'/storage/post_img/'. $post->id .'.wmv'))
     <div class="post-box">
-        <div class="photo-box">
-            <img src="{{ asset('/img/post1.jpg') }}" alt="投稿写真">
-        </div>
+        <a href="">
+            <div class="photo-box">
+                @if(file_exists(public_path().'/storage/post_img/'. $post->id .'.mp4'))
+                    <video src="/storage/post_img/{{ $post->id }}.mp4" autoplay loop playsinline></video>
+                @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.mov'))
+                    <video src="/storage/post_img/{{ $post->id }}.mov" autoplay loop playsinline></video>
+                @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.wmv'))
+                    <video src="/storage/post_img/{{ $post->id }}.wmv" autoplay loop playsinline></video>
+                @endif
+            </div>
+        </a>
     </div>
-    <div class="post-box">
-        <div class="photo-box">
-            <img src="{{ asset('/img/post2.jpg') }}" alt="投稿写真">
-        </div>
-    </div>
-    <div class="post-box">
-        <div class="photo-box">
-            <video src="{{ asset('/img/cat-video.mp4') }}" autoplay loop playsinline></video>
-        </div>
-    </div>
+    @endif
+    @endforeach
 </div>
 @endsection

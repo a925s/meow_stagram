@@ -441,7 +441,7 @@ mypage
     padding-top: 100%;
 }
 
-.mypage-posts .post-box .post-square-box {
+.mypage-posts .post-box .photo-box {
     position: absolute;
     top: 0;
     left: 0;
@@ -513,10 +513,6 @@ search
     line-height: 47px;
 }
 
-.order-box .order p.rank {
-    width: 70px;
-}
-
 .order-box .order p {
     width: 50px;
     margin: auto;
@@ -530,7 +526,6 @@ search
 
 .order-box .order p.rank-main {
     border-bottom: 3px solid #78614D;
-    width: 70px;
 }
 
 .order-box .order p.new {
@@ -557,7 +552,7 @@ search
     padding-top: 100%;
 }
 
-.search-posts .post-box .post-square-box {
+.search-posts .post-box .photo-box {
     position: absolute;
     top: 0;
     left: 0;

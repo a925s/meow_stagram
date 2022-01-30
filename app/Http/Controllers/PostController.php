@@ -43,4 +43,60 @@ class PostController extends Controller
         
         return back();
     }
+
+    /**
+     *  検索トップ表示
+     * 
+     *  @param Request $request
+     *  @return Response
+     */
+    public function getSearchPost(Request $request)
+    {
+        $posts = Post::where('status', 'active')->inRandomOrder()->get();
+        return view('main.search', [
+            'posts' => $posts,
+        ]);
+    }
+
+    /**
+     *  検索人気表示
+     * 
+     *  @param Request $request
+     *  @return Response
+     */
+    public function getSearchRankPost(Request $request)
+    {
+        $posts = Post::where('status', 'active')->get(); //TODO: like-count順
+        return view('main.search_rank', [
+            'posts' => $posts,
+        ]);
+    }
+
+    /**
+     *  検索最新表示
+     * 
+     *  @param Request $request
+     *  @return Response
+     */
+    public function getSearchNewPost(Request $request)
+    {
+        $posts = Post::where('status', 'active')->orderBy('created_at', 'desc')->get();
+        return view('main.search_new', [
+            'posts' => $posts,
+        ]);
+    }
+
+    /**
+     *  検索動画表示
+     * 
+     *  @param Request $request
+     *  @return Response
+     */
+    public function getSearchVideoPost(Request $request)
+    {
+        $posts = Post::where('status', 'active')->orderBy('created_at', 'desc')->get();
+        return view('main.search_video', [
+            'posts' => $posts,
+        ]);
+    }
 }
