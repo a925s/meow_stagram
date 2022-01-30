@@ -36,6 +36,7 @@ side
 .side-inner li.my-icon {
     position: fixed;
     bottom: 0;
+    padding: 15px;
 }
 
 .side-inner a {
@@ -51,10 +52,6 @@ side
 }
 
 .side-inner a.top-icon:hover {
-    background-color: #ffffff;
-}
-
-.side-inner a.my-icon:hover {
     background-color: #ffffff;
 }
 
@@ -80,6 +77,13 @@ side
 .side-inner img.my-icon {
     border-radius: 50%;
     border: 0.2px solid #aaa;
+}
+.popover{
+    border: 1px solid #A8998C;
+}
+.popover-body a{
+    color: #A8998C;
+    text-decoration: none;
 }
 
 .main {

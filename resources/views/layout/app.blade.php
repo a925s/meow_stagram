@@ -38,7 +38,7 @@
                     <li class="nav-item"><a href="/notification" class="nav-link"><img src="{{ asset('/img/notification.png') }}" alt="通知アイコン"><p>通知</p></a></li>
                     <li class="nav-item"><a href="/message" class="nav-link"><img src="{{ asset('/img/send.png') }}" alt="メッセージアイコン"><p>メッセージ</p></a></li>
                     <li class="nav-item"><a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#js-modal"><img src="{{ asset('/img/post.png') }}" alt="投稿アイコン"><p>投稿</p></a></li>
-                    <li class="nav-item my-icon"><a href="/mypage/post" class="nav-link my-icon"><img src="{{ asset('/img/cat_favicon.png') }}" class="my-icon" alt="マイアイコン"></a></li>
+                    <li class="nav-item my-icon js-popover" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-html="true" data-bs-content="<a href='/mypage/post'>プロフィール</a><br><a href='#'>ログアウト</a>"><img src="{{ asset('/img/cat_favicon.png') }}" class="my-icon" alt="マイアイコン"></li>
                 </ul>
             </div>
         </div>
@@ -72,5 +72,10 @@
             @yield('main')
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            $('.js-popover').popover();
+        }, false);
+    </script>
 </body>
 </html>
