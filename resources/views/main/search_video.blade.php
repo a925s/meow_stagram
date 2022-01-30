@@ -28,22 +28,26 @@
     </a>
 </div>
 <div class="search-posts">
-    @foreach($posts as $post)
-    @if(file_exists(public_path().'/storage/post_img/'. $post->id .'.mp4') || file_exists(public_path().'/storage/post_img/'. $post->id .'.mov') || file_exists(public_path().'/storage/post_img/'. $post->id .'.wmv'))
-    <div class="post-box">
-        <a href="">
-            <div class="photo-box">
-                @if(file_exists(public_path().'/storage/post_img/'. $post->id .'.mp4'))
-                    <video src="/storage/post_img/{{ $post->id }}.mp4" autoplay loop playsinline></video>
-                @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.mov'))
-                    <video src="/storage/post_img/{{ $post->id }}.mov" autoplay loop playsinline></video>
-                @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.wmv'))
-                    <video src="/storage/post_img/{{ $post->id }}.wmv" autoplay loop playsinline></video>
-                @endif
-            </div>
-        </a>
-    </div>
+    @if($posts->isEmpty())
+        <p class="p-3">投稿がありません。</p>
+    @else
+        @foreach($posts as $post)
+        @if(file_exists(public_path().'/storage/post_img/'. $post->id .'.mp4') || file_exists(public_path().'/storage/post_img/'. $post->id .'.mov') || file_exists(public_path().'/storage/post_img/'. $post->id .'.wmv'))
+        <div class="post-box">
+            <a href="">
+                <div class="photo-box">
+                    @if(file_exists(public_path().'/storage/post_img/'. $post->id .'.mp4'))
+                        <video src="/storage/post_img/{{ $post->id }}.mp4" autoplay loop playsinline></video>
+                    @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.mov'))
+                        <video src="/storage/post_img/{{ $post->id }}.mov" autoplay loop playsinline></video>
+                    @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.wmv'))
+                        <video src="/storage/post_img/{{ $post->id }}.wmv" autoplay loop playsinline></video>
+                    @endif
+                </div>
+            </a>
+        </div>
+        @endif
+        @endforeach
     @endif
-    @endforeach
 </div>
 @endsection

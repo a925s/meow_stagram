@@ -28,28 +28,32 @@
     </a>
 </div>
 <div class="search-posts">
-    @foreach($posts as $post)
-    <div class="post-box">
-        <a href="">
-            <div class="photo-box">
-                @if(file_exists(public_path().'/storage/post_img/'. $post->id .'.jpg'))
-                    <img src="/storage/post_img/{{ $post->id }}.jpg">
-                @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.jpeg'))
-                    <img src="/storage/post_img/{{ $post->id }}.jpeg">
-                @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.png'))
-                    <img src="/storage/post_img/{{ $post->id }}.png">
-                @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.gif'))
-                    <img src="/storage/post_img/{{ $post->id }}.gif">
-                @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.mp4'))
-                    <video src="/storage/post_img/{{ $post->id }}.mp4" autoplay loop playsinline></video>
-                @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.mov'))
-                    <video src="/storage/post_img/{{ $post->id }}.mov" autoplay loop playsinline></video>
-                @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.wmv'))
-                    <video src="/storage/post_img/{{ $post->id }}.wmv" autoplay loop playsinline></video>
-                @endif
-            </div>
-        </a>
-    </div>
-    @endforeach
+    @if($posts->isEmpty())
+        <p class="p-3">投稿がありません。</p>
+    @else
+        @foreach($posts as $post)
+        <div class="post-box">
+            <a href="">
+                <div class="photo-box">
+                    @if(file_exists(public_path().'/storage/post_img/'. $post->id .'.jpg'))
+                        <img src="/storage/post_img/{{ $post->id }}.jpg">
+                    @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.jpeg'))
+                        <img src="/storage/post_img/{{ $post->id }}.jpeg">
+                    @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.png'))
+                        <img src="/storage/post_img/{{ $post->id }}.png">
+                    @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.gif'))
+                        <img src="/storage/post_img/{{ $post->id }}.gif">
+                    @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.mp4'))
+                        <video src="/storage/post_img/{{ $post->id }}.mp4" autoplay loop playsinline></video>
+                    @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.mov'))
+                        <video src="/storage/post_img/{{ $post->id }}.mov" autoplay loop playsinline></video>
+                    @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.wmv'))
+                        <video src="/storage/post_img/{{ $post->id }}.wmv" autoplay loop playsinline></video>
+                    @endif
+                </div>
+            </a>
+        </div>
+        @endforeach
+    @endif
 </div>
 @endsection

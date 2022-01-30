@@ -29,6 +29,19 @@ body{
     color: #78614D;
 }
 
+.navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active {
+    color: #A8998C;
+}
+
+.dropdown-item {
+    color: #78614D;
+    background-color: #ffffff;
+}
+.dropdown-item:hover {
+    color: #78614D;
+    background-color: #ffffff;
+}
+
 .card{
     border: 1px solid #A8998C;
 }

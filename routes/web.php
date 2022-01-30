@@ -21,6 +21,10 @@ Route::get('/mypage/post', function () {
     return view('main.mypage_post');
 });
 
+Route::get('/user', function () {
+    return view('main.user');
+});
+
 Route::get('/mypage/bookmark', function () {
     return view('main.mypage_bookmark');
 });
