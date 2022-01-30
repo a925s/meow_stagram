@@ -38,7 +38,7 @@
                     <li class="nav-item"><a href="/notification" class="nav-link"><img src="{{ asset('/img/notification.png') }}" alt="通知アイコン"><p>通知</p></a></li>
                     <li class="nav-item"><a href="/message" class="nav-link"><img src="{{ asset('/img/send.png') }}" alt="メッセージアイコン"><p>メッセージ</p></a></li>
                     <li class="nav-item"><a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#js-modal"><img src="{{ asset('/img/post.png') }}" alt="投稿アイコン"><p>投稿</p></a></li>
-                    <li class="nav-item my-icon">
+                    <li class="nav-item my-icon js-popover" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-html="true" data-bs-content="<a href='/mypage/post'>プロフィール</a><br><a href='{{ route('logout') }}'>ログアウト</a>">
                         @if(isset($user->image_path))
                         <img src="{{ Storage::url($user->image_path) }}" class="my-icon" alt="マイアイコン">
                         @else
@@ -78,5 +78,11 @@
             @yield('main')
         </div>
     </div>
+    <script>
+        'use strict'
+        document.addEventListener('DOMContentLoaded', function() {
+            $('.js-popover').popover();
+        }, false);
+    </script>
 </body>
 </html>
