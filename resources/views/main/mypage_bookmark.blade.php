@@ -5,7 +5,11 @@
 @section('main')
 <div class="mypage-name">
     <div class="my-icon">
+        @if(isset($user->image_path))
+        <img src="{{ Storage::url($user->image_path) }}" alt="マイアイコン">
+        @else
         <img src="{{ asset('/img/cat.jpg') }}" alt="マイアイコン">
+        @endif
     </div>
     <div class="my-name-box">
         <div class="my-name">
@@ -18,15 +22,20 @@
     </div>
     <div class="modal fade" id="profile-modal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content">
-                <form action="#" method="post" enctype="multipart/form-data">
+            <div class="modal-content mypage">
+                <form action="/update" method="post" enctype="multipart/form-data">
+                    @csrf
                     <div class="modal-header">
                         <h5 class="modal-title">プロフィールを編集</h5>
                         <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="user">
+                            @if(isset($user->image_path))
+                            <img src="{{ Storage::url($user->image_path) }}" alt="マイアイコン">
+                            @else
                             <img src="{{ asset('/img/cat.jpg') }}" alt="マイアイコン">
+                            @endif
                         </div>
                         <div class="mb-3">
                             <label for="image" class="mb-1">プロフィール写真</label>
@@ -75,10 +84,10 @@
     </div>
 </div>
 <div class="mypage-posts">
-    @if($user->posts->isEmpty())
+    @if($posts->isEmpty())
         <p class="p-3">ブックマークがありません。</p>
     @else
-    @foreach($user->posts as $post)
+    @foreach($posts as $post)
         <div class="post-box">
             <div class="photo-box">
                 @if(file_exists(public_path().'/storage/post_img/'. $post->id .'.jpg'))

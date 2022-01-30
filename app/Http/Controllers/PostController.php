@@ -6,6 +6,8 @@ use App\Post;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Auth;
+
 class PostController extends Controller
 {
     /**
@@ -17,8 +19,10 @@ class PostController extends Controller
     public function getHomePost(Request $request)
     {
         $posts = Post::where('status', 'active')->orderBy('created_at', 'desc')->get();
+        $user = Auth::user();
         return view('main.home', [
             'posts' => $posts,
+            'user' => $user,
         ]);
     }
 
@@ -32,7 +36,7 @@ class PostController extends Controller
     {
         $this->validate($request, Post::$rules);
         $post = new Post;
-        $post->user_id = 1;
+        $post->user_id = Auth::id();
         $post->body = $request->body;
         $post->save();
 

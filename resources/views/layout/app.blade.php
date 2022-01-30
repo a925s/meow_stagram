@@ -38,7 +38,13 @@
                     <li class="nav-item"><a href="/notification" class="nav-link"><img src="{{ asset('/img/notification.png') }}" alt="通知アイコン"><p>通知</p></a></li>
                     <li class="nav-item"><a href="/message" class="nav-link"><img src="{{ asset('/img/send.png') }}" alt="メッセージアイコン"><p>メッセージ</p></a></li>
                     <li class="nav-item"><a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#js-modal"><img src="{{ asset('/img/post.png') }}" alt="投稿アイコン"><p>投稿</p></a></li>
-                    <li class="nav-item my-icon"><img src="{{ asset('/img/cat_favicon.png') }}" class="my-icon" alt="マイアイコン"></li>
+                    <li class="nav-item my-icon">
+                        @if(isset($user->image_path))
+                        <img src="{{ Storage::url($user->image_path) }}" class="my-icon" alt="マイアイコン">
+                        @else
+                        <img src="{{ asset('/img/cat.jpg') }}" class="my-icon" alt="マイアイコン">
+                        @endif
+                    </li>
                 </ul>
             </div>
         </div>

@@ -21,6 +21,8 @@ Route::get('/mypage/post', 'UserController@getMypagePost');
 
 Route::get('/mypage/bookmark', 'UserController@getMypageBookmark');
 
+Route::post('/update', 'UserController@updateUser');
+
 Route::get('/user', function () {
     return view('main.user');
 });

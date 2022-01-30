@@ -11,7 +11,13 @@
         <div class="post-box">
             <div class="name">
                 <div class="post-my-icon">
-                    <a href="#"><img src="{{ asset('/img/cat.jpg') }}" alt="マイアイコン"></a>
+                    <a href="#">
+                        @if(isset($post->user->image_path))
+                        <img src="{{ Storage::url($post->user->image_path) }}" alt="マイアイコン">
+                        @else
+                        <img src="{{ asset('/img/cat.jpg') }}" alt="マイアイコン">
+                        @endif
+                    </a>
                 </div>
                 <div class="post-my-name">
                     <a href="#">

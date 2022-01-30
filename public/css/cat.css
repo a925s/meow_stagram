@@ -77,6 +77,7 @@ side
 .side-inner img.my-icon {
     border-radius: 50%;
     border: 0.2px solid #aaa;
+    object-fit: contain;
 }
 .popover{
     border: 1px solid #A8998C;
@@ -201,12 +202,16 @@ main_post
 
 .posts-box .post-box .name .post-my-icon {
     width: 60px;
+    height: 60px;
     padding: 10px;
 }
 
 .posts-box .post-box .name .post-my-icon img {
     width: 100%;
+    height: 100%;
     border-radius: 50%;
+    object-fit: contain;
+    border: 0.2px solid #aaa;
 }
 
 .posts-box .post-box .name .post-my-name {
@@ -339,14 +344,17 @@ mypage
 
 .mypage-name .my-icon {
     width: 150px;
+    height: 150px;
     margin: 0 50px 0 50px;
     padding: 30px;
 }
 
 .mypage-name .my-icon img {
     width: 100%;
+    height: 100%;
     border-radius: 50%;
     border: 0.2px solid #ddd;
+    object-fit: contain;
 }
 
 .mypage-name .my-name-box {
@@ -378,12 +386,16 @@ mypage
 
 .mypage-name .user {
     width: 100px;
+    height: 100px;
     margin-bottom: 15px;
 }
 
 .mypage-name .user img {
     width: 100%;
+    height: 100%;
     border-radius: 50%;
+    object-fit: contain;
+    border: 0.2px solid #aaa;
 }
 
 .count {
@@ -480,7 +492,9 @@ mypage
 .btn-outline-dark:focus {
     box-shadow: none;
 }
-
+.modal-dialog .mypage{
+    height: 600px;
+}
 /**
 search
 ****/
