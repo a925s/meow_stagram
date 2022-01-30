@@ -20,9 +20,11 @@ class UserController extends Controller
     {
         $user = Auth::user();
         $posts = $request->user()->posts()->where('status', 'active')->orderBy('created_at', 'desc')->get();
+        $post_count = $posts->count();
         return view('main.mypage_post', [
             'user' => $user,
             'posts' => $posts,
+            'post_count' => $post_count,
         ]);
     }
 
@@ -36,9 +38,11 @@ class UserController extends Controller
     {
         $user = Auth::user(); //ブックマーク登録
         $posts = $request->user()->posts()->where('status', 'active')->orderBy('created_at', 'desc')->get();
+        $post_count = $posts->count();
         return view('main.mypage_bookmark', [
             'user' => $user,
             'posts' => $posts,
+            'post_count' => $post_count,
         ]);
     }
 

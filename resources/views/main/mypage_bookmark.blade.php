@@ -61,7 +61,7 @@
 <div class="count">
     <div class="count-box line">
         <p>投稿</p>
-        <p class="lang-color">8</p>
+        <p class="lang-color">{{ $post_count }}</p>
         <p>件</p>
     </div>
     <div class="count-box line">
