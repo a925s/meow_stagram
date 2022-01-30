@@ -9,8 +9,8 @@
     </div>
     <div class="my-name-box">
         <div class="my-name">
-            <h1>太郎</h1>
-            <p>@taro</p>
+            <h1>{{ $user->nickname }}</h1>
+            <p>{{ '@'.$user->name }}</p>
         </div>
         <div class="button-box">
             <a class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#profile-modal" href="#" role="button">プロフィールを編集</a>
@@ -33,9 +33,9 @@
                             <input type="file" class="form-control form-control-sm" name="image" id="image">
                         </div>
 
-                        <input type="text" class="form-control mb-4" name="nickname" value="太郎" placeholder="ニックネーム" maxlength="50" required>
-                        <input type="text" class="form-control mb-4" name="name" value="taro" placeholder="ユーザー名" maxlength="50" required>
-                        <input type="email" class="form-control mb-4" name="email" value="taro@techis.jp" placeholder="メールアドレス" maxlength="254" required>
+                        <input type="text" class="form-control mb-4" name="nickname" value="{{ $user->nickname }}" placeholder="ニックネーム" maxlength="50" required>
+                        <input type="text" class="form-control mb-4" name="name" value="{{ $user->name }}" placeholder="ユーザー名" maxlength="50" required>
+                        <input type="email" class="form-control mb-4" name="email" value="{{ $user->email }}" placeholder="メールアドレス" maxlength="254" required>
                         <input type="password" class="form-control mb-4" name="password" value="" placeholder="パスワードを変更する場合ご入力ください" minlength="4" maxlength="128">
                     </div>
 
@@ -75,20 +75,30 @@
     </div>
 </div>
 <div class="mypage-posts">
-    <div class="post-box">
-        <div class="photo-box">
-            <img src="{{ asset('/img/post1.jpg') }}" alt="投稿写真">
+    @if($user->posts->isEmpty())
+        <p class="p-3">ブックマークがありません。</p>
+    @else
+    @foreach($user->posts as $post)
+        <div class="post-box">
+            <div class="photo-box">
+                @if(file_exists(public_path().'/storage/post_img/'. $post->id .'.jpg'))
+                    <img src="/storage/post_img/{{ $post->id }}.jpg">
+                @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.jpeg'))
+                    <img src="/storage/post_img/{{ $post->id }}.jpeg">
+                @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.png'))
+                    <img src="/storage/post_img/{{ $post->id }}.png">
+                @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.gif'))
+                    <img src="/storage/post_img/{{ $post->id }}.gif">
+                @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.mp4'))
+                    <video src="/storage/post_img/{{ $post->id }}.mp4" autoplay loop playsinline></video>
+                @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.mov'))
+                    <video src="/storage/post_img/{{ $post->id }}.mov" autoplay loop playsinline></video>
+                @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.wmv'))
+                    <video src="/storage/post_img/{{ $post->id }}.wmv" autoplay loop playsinline></video>
+                @endif
+            </div>
         </div>
-    </div>
-    <div class="post-box">
-        <div class="photo-box">
-            <img src="{{ asset('/img/post2.jpg') }}" alt="投稿写真">
-        </div>
-    </div>
-    <div class="post-box">
-        <div class="photo-box">
-            <video src="{{ asset('/img/cat-video.mp4') }}" autoplay loop playsinline></video>
-        </div>
-    </div>
+    @endforeach
+    @endif
 </div>
 @endsection

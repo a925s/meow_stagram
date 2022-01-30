@@ -71,4 +71,10 @@ class RegisterController extends Controller
             'nickname' => $data['nickname'],
         ]);
     }
+
+    // ログイン後のリダイレクト先を記述
+    public function redirectPath()
+    {
+        return '/sns';
+    }
 }

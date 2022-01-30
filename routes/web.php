@@ -15,18 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', 'PostController@getHomePost');
+Route::get('/sns', 'PostController@getHomePost');
 
-Route::get('/mypage/post', function () {
-    return view('main.mypage_post');
-});
+Route::get('/mypage/post', 'UserController@getMypagePost');
+
+Route::get('/mypage/bookmark', 'UserController@getMypageBookmark');
 
 Route::get('/user', function () {
     return view('main.user');
-});
-
-Route::get('/mypage/bookmark', function () {
-    return view('main.mypage_bookmark');
 });
 
 Route::get('/search', 'PostController@getSearchPost');
@@ -44,8 +40,14 @@ Route::get('/notification', function () {
 Route::get('/message', function () {
     return view('main.message');
 });
-Auth::routes();
-
-Route::get('/signin', 'HomeController@index')->name('home');
 
 Route::post('/post', 'PostController@post');
+
+
+
+
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

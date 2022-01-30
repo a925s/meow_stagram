@@ -32,13 +32,13 @@
         <div class="side">
             <div class="side-inner">
                 <ul class="nav flex-column">
-                    <li class="nav-item top-icon"><a href="/home" class="nav-link top-icon"><img src="{{ asset('/img/cat.jpg') }}" class="top-icon" alt="猫アイコン"></a></li>
-                    <li class="nav-item"><a href="/home" class="nav-link"><img src="{{ asset('/img/home.png') }}" alt="ホームアイコン"><p>ホーム</p></a></li>
+                    <li class="nav-item top-icon"><a href="/sns" class="nav-link top-icon"><img src="{{ asset('/img/cat.jpg') }}" class="top-icon" alt="猫アイコン"></a></li>
+                    <li class="nav-item"><a href="/sns" class="nav-link"><img src="{{ asset('/img/home.png') }}" alt="ホームアイコン"><p>ホーム</p></a></li>
                     <li class="nav-item"><a href="/search" class="nav-link"><img src="{{ asset('/img/search.svg') }}" alt="検索アイコン"><p>検索</p></a></li>
                     <li class="nav-item"><a href="/notification" class="nav-link"><img src="{{ asset('/img/notification.png') }}" alt="通知アイコン"><p>通知</p></a></li>
                     <li class="nav-item"><a href="/message" class="nav-link"><img src="{{ asset('/img/send.png') }}" alt="メッセージアイコン"><p>メッセージ</p></a></li>
                     <li class="nav-item"><a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#js-modal"><img src="{{ asset('/img/post.png') }}" alt="投稿アイコン"><p>投稿</p></a></li>
-                    <li class="nav-item my-icon js-popover" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-html="true" data-bs-content="<a href='/mypage/post'>プロフィール</a><br><a href='#'>ログアウト</a>"><img src="{{ asset('/img/cat_favicon.png') }}" class="my-icon" alt="マイアイコン"></li>
+                    <li class="nav-item my-icon"><img src="{{ asset('/img/cat_favicon.png') }}" class="my-icon" alt="マイアイコン"></li>
                 </ul>
             </div>
         </div>
@@ -72,11 +72,5 @@
             @yield('main')
         </div>
     </div>
-    <script>
-        'user strict'
-        document.addEventListener('DOMContentLoaded', function() {
-            $('.js-popover').popover();
-        }, false);
-    </script>
 </body>
 </html>
