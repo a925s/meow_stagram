@@ -23,9 +23,7 @@ Route::get('/mypage/bookmark', 'UserController@getMypageBookmark');
 
 Route::post('/update', 'UserController@updateUser');
 
-Route::get('/user', function () {
-    return view('main.user');
-});
+Route::get('/user/{id}', 'UserController@getUserPage');
 
 Route::get('/search', 'PostController@getSearchPost');
 

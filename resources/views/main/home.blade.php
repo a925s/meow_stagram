@@ -11,7 +11,11 @@
         <div class="post-box">
             <div class="name">
                 <div class="post-my-icon">
-                    <a href="#">
+                    @if($user->id == $post->user_id)
+                    <a href="/mypage/post">
+                    @else
+                    <a href="/user/{{ $post->user_id }}">
+                    @endif
                         @if(isset($post->user->image_path))
                         <img src="{{ Storage::url($post->user->image_path) }}" alt="マイアイコン">
                         @else

@@ -11,6 +11,16 @@ use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
     /**
+    * コンストラクタ
+    *
+    * @return void
+    */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      *  マイページ(post)表示
      * 
      *  @param Request $request
@@ -80,5 +90,23 @@ class UserController extends Controller
         $user->save();
 
         return back();
+    }
+
+    /**
+     *  他のユーザーページ表示
+     * 
+     *  @param Request $request
+     *  @return Response
+     */
+    public function getUserPage(Request $request, $id)
+    {
+        $user = User::find($id);
+        $posts = $user->posts()->where('status', 'active')->orderBy('created_at', 'desc')->get();
+        $post_count = $posts->count();
+        return view('main.user', [
+            'user' => $user,
+            'posts' => $posts,
+            'post_count' => $post_count,
+        ]);
     }
 }

@@ -11,6 +11,16 @@ use Illuminate\Support\Facades\Auth;
 class PostController extends Controller
 {
     /**
+    * コンストラクタ
+    *
+    * @return void
+    */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      *  ホーム表示
      * 
      *  @param Request $request
