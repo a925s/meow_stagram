@@ -50,8 +50,12 @@
                 </div>
             </div>
             <div class="photo-bottom-icon">
-                <div class="photo-icon">
-                    <img src="{{ asset('/img/like.png') }}" alt="いいね！アイコン">
+                <div class="photo-icon js-like" data-post-id="{{ $post->id }}" data-like-id="{{ $post->post_like_id() }}">
+                    @if(isset($post->post_like_id))
+                        <img src="{{ asset('/img/like-red.png') }}" alt="いいね！アイコン">
+                    @else
+                        <img src="{{ asset('/img/like.png') }}" alt="いいね！アイコン">
+                    @endif
                 </div>
                 <div class="photo-icon">
                     <img src="{{ asset('/img/send.png') }}" alt="メッセージアイコン">
@@ -61,7 +65,7 @@
                 </div>
             </div>
             <div class="text-box">
-                <p class="like-count">いいね！10件</p>
+                <p class="like-count">いいね！<span class="js-like-count">{{ $post->like_count }}</span>件</p>
                 <p>{{ $post->body }}</p>
                 <p class="post-date">{{ $post->created_at->diffForHumans() }}</p>
             </div>
