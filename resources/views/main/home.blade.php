@@ -52,11 +52,11 @@
                 <div class="photo-bottom-icon">
                     @if(is_null($post->post_like_id()))
                         <div class="photo-icon js-like" data-post-id="{{ $post->id }}" data-like-id="null">
-                            <img src="{{ asset('/img/like.png') }}" alt="いいね！アイコン">
+                            <img src="{{ asset('/img/like.png') }}">
                         </div>
                     @else
                         <div class="photo-icon js-like" data-post-id="{{ $post->id }}" data-like-id="{{ $post->post_like_id() }}">
-                            <img src="{{ asset('/img/like-red.png') }}" alt="いいね！アイコン">
+                            <img src="{{ asset('/img/like-red.png') }}">
                         </div>
                     @endif
                     <div class="photo-icon">
@@ -67,11 +67,7 @@
                     </div>
                 </div>
                 <div class="text-box">
-                    @if(is_null($post->like_count()))
-                    <p class="like-count">いいね！<span class="js-like-count">0</span>件</p>
-                    @else
                     <p class="like-count">いいね！<span class="js-like-count">{{ $post->like_count() }}</span>件</p>
-                    @endif
                     <p>{{ $post->body }}</p>
                     <p class="post-date">{{ $post->created_at->diffForHumans() }}</p>
                 </div>

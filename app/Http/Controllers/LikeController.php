@@ -31,7 +31,7 @@ class LikeController extends Controller
     {
         $user_id = Auth::id();
         $post_id = $request->post_id;
-        $like_id = $request->like_id;
+        $like_id = null;
 
         // post_idがPOSTされた場合（いいね！する）
         if(isset($post_id)){
@@ -39,10 +39,11 @@ class LikeController extends Controller
             $like->user_id = $user_id;
             $like->post_id = $post_id;
             $like->save();
+            $like_id = $like->id;
         }
         // like_idがPOSTされた場合（いいね！外す）
-        if(isset($like_id)){
-            $like = Like::find($like_id);
+        if(isset($request->like_id)){
+            $like = Like::find($request->like_id);
             $like->status = 'delete';
             $like->save();
         }

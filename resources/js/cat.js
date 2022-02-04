@@ -8,7 +8,7 @@ $(function () {
         const this_obj = $(this);
         const post_id = $(this).data('post-id');
         const like_id = $(this).data('like-id');
-        const like_count_obj = $(this).parent().find('.js-like-count');
+        const like_count_obj = $(this).parent().parent().find('.js-like-count');
         let like_count = Number(like_count_obj.html());
 
         if (like_id) {
@@ -33,7 +33,7 @@ $(function () {
                     this_obj.data('like-id', null);
 
                     // いいね！ボタンをデフォルトに変更
-                    $(this).find('img').attr('src', "{{ asset('/img/like.png') }}");
+                    $(this).find('img').attr('src', '/img/like.png');
                 })
                 .fail((data) => {
                     alert('処理中にエラーが発生しました。');
@@ -61,7 +61,7 @@ $(function () {
                     this_obj.data('like-id', data['like_id']);
 
                     // いいね！ボタンの色を赤に変更
-                    $(this).find('img').attr('src', "{{ asset('/img/like-red.png') }}");
+                    $(this).find('img').attr('src', '/img/like-red.png');
                 })
                 .fail((data) => {
                     alert('処理中にエラーが発生しました。');

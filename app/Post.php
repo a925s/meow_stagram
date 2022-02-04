@@ -30,16 +30,20 @@ class Post extends Model
     public function post_like_id() 
     {
         $user_id = Auth::id();
-        $post_like = Like::where('user_id', $user_id)->where('post_id', $this->id)->first();
+        $post_like = Like::where('status', 'active')->where('user_id', $user_id)->where('post_id', $this->id)->first();
 
         if(!empty($post_like)){
             //レコードが存在するなら
             return $post_like->id;
-        }   //レコードが存在しなければnull
+        }   
+            //レコードが存在しなければnull
+            return null;
     }
 
     // like-countの値
     public function like_count(){
         $like_count = Like::where('status', 'active')->where('post_id', $this->id)->count();
+
+        return $like_count;
     }
 }

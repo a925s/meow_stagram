@@ -10997,7 +10997,7 @@ $(function () {
     var this_obj = $(this);
     var post_id = $(this).data('post-id');
     var like_id = $(this).data('like-id');
-    var like_count_obj = $(this).parent().find('.js-like-count');
+    var like_count_obj = $(this).parent().parent().find('.js-like-count');
     var like_count = Number(like_count_obj.html());
 
     if (like_id) {
@@ -11021,7 +11021,7 @@ $(function () {
         like_count_obj.html(like_count);
         this_obj.data('like-id', null); // いいね！ボタンをデフォルトに変更
 
-        $(_this).find('img').attr('src', "{{ asset('/img/like.png') }}");
+        $(_this).find('img').attr('src', '/img/like.png');
       }).fail(function (data) {
         alert('処理中にエラーが発生しました。');
         console.log(data);
@@ -11045,9 +11045,9 @@ $(function () {
         // いいね！カウントを増やす
         like_count++;
         like_count_obj.html(like_count);
-        this_obj.data('like-id', data['like_id']); // いいね！ボタンの色を青に変更
+        this_obj.data('like-id', data['like_id']); // いいね！ボタンの色を赤に変更
 
-        $(_this).find('img').attr('src', "{{ asset('/img/like.png') }}");
+        $(_this).find('img').attr('src', '/img/like-red.png');
       }).fail(function (data) {
         alert('処理中にエラーが発生しました。');
         console.log(data);
