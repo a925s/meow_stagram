@@ -10986,26 +10986,72 @@ return jQuery;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function($) {$(function () {
-  /**
-   * 画像サイズの取得
-   */
-  $(window).on('load', function () {
-    // ウィンドウを更新した後に画像サイズを取得
-    var height = $('.photo-box img').height();
-    var width = $('.photo-box img').width();
+/* WEBPACK VAR INJECTION */(function($) {///////////////////////////////////////
+// いいね！用のJavaScript
+///////////////////////////////////////
+$(function () {
+  // いいね！がクリックされたとき
+  $('.js-like').click(function () {
+    var _this = this;
 
-    if (height > width) {
-      $('#photo').toggleClass('size');
-    }
-  });
-  $(window).on('load', function () {
-    // ウィンドウを更新した後に画像サイズを取得
-    var height = $('.photo-box video').height();
-    var width = $('.photo-box video').width();
+    var this_obj = $(this);
+    var post_id = $(this).data('post-id');
+    var like_id = $(this).data('like-id');
+    var like_count_obj = $(this).parent().find('.js-like-count');
+    var like_count = Number(like_count_obj.html());
 
-    if (height > width) {
-      $('#photo').toggleClass('size');
+    if (like_id) {
+      // いいね！取り消し
+      // 非同期通信
+      $.ajax({
+        headers: {
+          //HTTPヘッダ情報をヘッダ名と値のマップで記述
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        url: '/like',
+        type: 'POST',
+        data: {
+          'like_id': like_id
+        },
+        timeout: 10000
+      }) // 取り消しが成功
+      .done(function () {
+        // いいね！カウントを減らす
+        like_count--;
+        like_count_obj.html(like_count);
+        this_obj.data('like-id', null); // いいね！ボタンをデフォルトに変更
+
+        $(_this).find('img').attr('src', "{{ asset('/img/like.png') }}");
+      }).fail(function (data) {
+        alert('処理中にエラーが発生しました。');
+        console.log(data);
+      });
+    } else {
+      // いいね！付与
+      // 非同期通信
+      $.ajax({
+        headers: {
+          //HTTPヘッダ情報をヘッダ名と値のマップで記述
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        url: '/like',
+        type: 'POST',
+        data: {
+          'post_id': post_id
+        },
+        timeout: 10000
+      }) // いいね！が成功
+      .done(function (data) {
+        // いいね！カウントを増やす
+        like_count++;
+        like_count_obj.html(like_count);
+        this_obj.data('like-id', data['like_id']); // いいね！ボタンの色を青に変更
+
+        $(_this).find('img').attr('src', "{{ asset('/img/like.png') }}");
+      }).fail(function (data) {
+        alert('処理中にエラーが発生しました。');
+        console.log(data);
+      });
     }
   });
 });

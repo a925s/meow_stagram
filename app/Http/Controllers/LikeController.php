@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Like;
-use App\User;
 use App\Post;
+
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Auth;
 
 class LikeController extends Controller
 {
@@ -40,6 +42,7 @@ class LikeController extends Controller
         }
         // like_idがPOSTされた場合（いいね！外す）
         if(isset($like_id)){
+            $like = Like::find($like_id);
             $like->status = 'delete';
             $like->save();
         }

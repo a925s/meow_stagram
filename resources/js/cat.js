@@ -6,7 +6,7 @@ $(function () {
     // いいね！がクリックされたとき
     $('.js-like').click(function () {
         const this_obj = $(this);
-        const tweet_id = $(this).data('post-id');
+        const post_id = $(this).data('post-id');
         const like_id = $(this).data('like-id');
         const like_count_obj = $(this).parent().find('.js-like-count');
         let like_count = Number(like_count_obj.html());
@@ -60,8 +60,8 @@ $(function () {
                     like_count_obj.html(like_count);
                     this_obj.data('like-id', data['like_id']);
 
-                    // いいね！ボタンの色を青に変更
-                    $(this).find('img').attr('src', "{{ asset('/img/like.png') }}");
+                    // いいね！ボタンの色を赤に変更
+                    $(this).find('img').attr('src', "{{ asset('/img/like-red.png') }}");
                 })
                 .fail((data) => {
                     alert('処理中にエラーが発生しました。');

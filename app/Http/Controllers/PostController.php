@@ -31,11 +31,10 @@ class PostController extends Controller
     {
         $posts = Post::where('status', 'active')->orderBy('created_at', 'desc')->get();
         $user = Auth::user();
-        $user_id = Auth::id();
+
         return view('main.home', [
             'posts' => $posts,
             'user' => $user,
-            'user_id' => $user_id,
         ]);
     }
 
