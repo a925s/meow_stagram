@@ -6,6 +6,8 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+use Illuminate\Support\Facades\Auth;
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -52,11 +54,6 @@ class User extends Authenticatable
         return $this->hasMany('App\Bookmark');
     }
 
-    public function follows()
-    {
-        return $this->hasMany('App\Follow');
-    }
-
     public function likes()
     {
         return $this->hasMany('App\Like');
@@ -70,5 +67,31 @@ class User extends Authenticatable
     public function notifications()
     {
         return $this->hasMany('App\Notification');
+    }
+
+    // フォロワー→フォロー
+    public function follow()
+    {
+        return $this->belongsToMany('App\User', 'follows', 'followed_user_id', 'follow_user_id');
+    }
+
+    // フォロー→フォロワー
+    public function followed()
+    {
+        return $this->belongsToMany('App\User', 'follows', 'follow_user_id', 'followed_user_id');
+    }
+
+    // data-follow-idの値
+    public function follow_id() 
+    {
+        $user_id = Auth::id();
+        $follow = Follow::where('status', 'active')->where('follow_user_id', $user_id)->where('followed_user_id', $this->id)->first();
+
+        if(!empty($follow)){
+            //レコードが存在するなら
+            return $follow->id;
+        }   
+            //レコードが存在しなければnull
+            return null;
     }
 }

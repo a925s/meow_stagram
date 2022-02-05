@@ -14,7 +14,6 @@ class UpdateUserTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('status')->default('active')->index();
             $table->string('nickname')->index();
             $table->string('image_name')->nullable()->default(null);
             $table->string('image_path')->nullable()->default(null);

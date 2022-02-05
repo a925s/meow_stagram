@@ -29,6 +29,8 @@ Route::post('/update', 'UserController@updateUser');
 
 Route::get('/user/{id}', 'UserController@getUserPage');
 
+Route::post('/follow', 'FollowController@follow');
+
 Route::get('/search', 'PostController@getSearchPost');
 
 Route::get('/search/rank', 'PostController@getSearchRankPost');

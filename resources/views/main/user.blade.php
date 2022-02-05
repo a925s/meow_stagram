@@ -16,9 +16,15 @@
             <h1>{{ $user->nickname }}</h1>
             <p>{{ '@'.$user->name }}</p>
         </div>
-        <div class="button-box">
-            <a class="btn btn-outline-dark" href="#" role="button">フォローする</a>
-        </div>
+        @if(is_null($user->follow_id()))
+            <div class="button-box">
+                <a class="btn btn-outline-dark js-follow" data-followed-user-id="{{ $user->id }}" data-follow-id="null" role="button">フォローする</a>
+            </div>
+        @else
+            <div class="button-box">
+                <a class="btn btn-outline-dark btn-reverse js-follow" data-followed-user-id="{{ $user->id }}" data-follow-id="{{ $user->follow_id() }}" role="button">フォローを外す</a>
+            </div>
+        @endif
     </div>
 </div>
 <div class="count">
@@ -29,12 +35,12 @@
     </div>
     <div class="count-box line">
         <p>フォロワー</p>
-        <p class="lang-color">70</p>
+        <p class="lang-color">{{ $followed_count }}</p>
         <p>人</p>
     </div>
     <div class="count-box">
         <p>フォロー</p>
-        <p class="lang-color">85</p>
+        <p class="lang-color">{{ $follow_count }}</p>
         <p>人</p>
     </div>
 </div>

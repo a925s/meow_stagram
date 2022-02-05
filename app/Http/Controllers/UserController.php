@@ -32,10 +32,14 @@ class UserController extends Controller
         $user = Auth::user();
         $posts = $request->user()->posts()->where('status', 'active')->orderBy('created_at', 'desc')->get();
         $post_count = $posts->count();
+        $follow_count = $user->follow()->where('status', 'active')->count();
+        $followed_count = $user->followed()->where('status', 'active')->count();
         return view('main.mypage_post', [
             'user' => $user,
             'posts' => $posts,
             'post_count' => $post_count,
+            'follow_count' => $follow_count,
+            'followed_count' => $followed_count,
         ]);
     }
 
@@ -50,10 +54,14 @@ class UserController extends Controller
         $user = Auth::user(); //ブックマーク登録
         $post_count = $request->user()->posts()->where('status', 'active')->count();
         $bookmarks = $request->user()->bookmarks()->where('status', 'active')->orderBy('created_at', 'desc')->get();
+        $follow_count = $user->follow()->where('status', 'active')->count();
+        $followed_count = $user->followed()->where('status', 'active')->count();
         return view('main.mypage_bookmark', [
             'user' => $user,
             'post_count' => $post_count,
             'bookmarks' => $bookmarks,
+            'follow_count' => $follow_count,
+            'followed_count' => $followed_count,
         ]);
     }
 
@@ -104,10 +112,15 @@ class UserController extends Controller
         $user = User::find($id);
         $posts = $user->posts()->where('status', 'active')->orderBy('created_at', 'desc')->get();
         $post_count = $posts->count();
+        $follow_count = $user->follow()->where('status', 'active')->count();
+        $followed_count = $user->followed()->where('status', 'active')->count();
         return view('main.user', [
             'user' => $user,
             'posts' => $posts,
             'post_count' => $post_count,
+            'follow_count' => $follow_count,
+            'followed_count' => $followed_count,
+            
         ]);
     }
 }

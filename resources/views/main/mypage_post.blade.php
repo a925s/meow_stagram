@@ -66,12 +66,12 @@
     </div>
     <div class="count-box line">
         <p>フォロワー</p>
-        <p class="lang-color">70</p>
+        <p class="lang-color">{{ $followed_count }}</p>
         <p>人</p>
     </div>
     <div class="count-box">
         <p>フォロー</p>
-        <p class="lang-color">85</p>
+        <p class="lang-color">{{ $follow_count }}</p>
         <p>人</p>
     </div>
 </div>

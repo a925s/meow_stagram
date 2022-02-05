@@ -332,6 +332,17 @@ mypage
 }
 
 .btn-outline-dark:hover {
+    background-color:#ffffff;
+    color: #78614D;
+    border-color: #78614D;
+}
+
+.btn-reverse {
+    color: #fff;
+    background-color: #78614D;
+    border-color: #78614D;
+}
+.btn-reverse:hover {
     color: #fff;
     background-color: #78614D;
     border-color: #78614D;
