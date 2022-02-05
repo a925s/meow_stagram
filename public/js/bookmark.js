@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -10979,75 +10979,67 @@ return jQuery;
 
 /***/ }),
 
-/***/ "./resources/js/cat.js":
-/*!*****************************!*\
-  !*** ./resources/js/cat.js ***!
-  \*****************************/
+/***/ "./resources/js/bookmark.js":
+/*!**********************************!*\
+  !*** ./resources/js/bookmark.js ***!
+  \**********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function($) {///////////////////////////////////////
-// いいね！用のJavaScript
+// ブックマーク用のJavaScript
 ///////////////////////////////////////
 $(function () {
-  // いいね！がクリックされたとき
-  $('.js-like').click(function () {
+  // ブックマークがクリックされたとき
+  $('.js-bookmark').click(function () {
     var _this = this;
 
     var this_obj = $(this);
     var post_id = $(this).data('post-id');
-    var like_id = $(this).data('like-id');
-    var like_count_obj = $(this).parent().parent().find('.js-like-count');
-    var like_count = Number(like_count_obj.html());
+    var bookmark_id = $(this).data('bookmark-id');
 
-    if (like_id) {
-      // いいね！取り消し
+    if (bookmark_id) {
+      // ブックマーク取り消し
       // 非同期通信
       $.ajax({
         headers: {
           //HTTPヘッダ情報をヘッダ名と値のマップで記述
           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
-        url: '/like',
+        url: '/bookmark',
         type: 'POST',
         data: {
-          'like_id': like_id
+          'bookmark_id': bookmark_id
         },
         timeout: 10000
       }) // 取り消しが成功
       .done(function () {
-        // いいね！カウントを減らす
-        like_count--;
-        like_count_obj.html(like_count);
-        this_obj.data('like-id', null); // いいね！ボタンをデフォルトに変更
+        this_obj.data('bookmark-id', null); // ブックマークボタンをデフォルトに変更
 
-        $(_this).find('img').attr('src', '/img/like.png');
+        $(_this).find('img').attr('src', '/img/bookmark.svg');
       }).fail(function (data) {
         alert('処理中にエラーが発生しました。');
         console.log(data);
       });
     } else {
-      // いいね！付与
+      // ブックマーク付与
       // 非同期通信
       $.ajax({
         headers: {
           //HTTPヘッダ情報をヘッダ名と値のマップで記述
           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
-        url: '/like',
+        url: '/bookmark',
         type: 'POST',
         data: {
           'post_id': post_id
         },
         timeout: 10000
-      }) // いいね！が成功
+      }) // ブックマークが成功
       .done(function (data) {
-        // いいね！カウントを増やす
-        like_count++;
-        like_count_obj.html(like_count);
-        this_obj.data('like-id', data['like_id']); // いいね！ボタンの色を赤に変更
+        this_obj.data('bookmark-id', data['bookmark_id']); // ブックマークボタンの色を黒に変更
 
-        $(_this).find('img').attr('src', '/img/like-red.png');
+        $(_this).find('img').attr('src', '/img/bookmark-black.svg');
       }).fail(function (data) {
         alert('処理中にエラーが発生しました。');
         console.log(data);
@@ -11059,14 +11051,14 @@ $(function () {
 
 /***/ }),
 
-/***/ 1:
-/*!***********************************!*\
-  !*** multi ./resources/js/cat.js ***!
-  \***********************************/
+/***/ 2:
+/*!****************************************!*\
+  !*** multi ./resources/js/bookmark.js ***!
+  \****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\sns\meow_stagram\resources\js\cat.js */"./resources/js/cat.js");
+module.exports = __webpack_require__(/*! C:\sns\meow_stagram\resources\js\bookmark.js */"./resources/js/bookmark.js");
 
 
 /***/ })

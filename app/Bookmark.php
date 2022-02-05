@@ -10,4 +10,9 @@ class Bookmark extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function post()
+    {
+        return $this->belongsTo('App\Post');
+    }
 }

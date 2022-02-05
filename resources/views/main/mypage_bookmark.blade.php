@@ -84,26 +84,26 @@
     </div>
 </div>
 <div class="mypage-posts">
-    @if($posts->isEmpty())
+    @if($bookmarks->isEmpty())
         <p class="p-3">ブックマークがありません。</p>
     @else
-    @foreach($posts as $post)
+    @foreach($bookmarks as $bookmark)
         <div class="post-box">
             <div class="photo-box">
-                @if(file_exists(public_path().'/storage/post_img/'. $post->id .'.jpg'))
-                    <img src="/storage/post_img/{{ $post->id }}.jpg">
-                @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.jpeg'))
-                    <img src="/storage/post_img/{{ $post->id }}.jpeg">
-                @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.png'))
-                    <img src="/storage/post_img/{{ $post->id }}.png">
-                @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.gif'))
-                    <img src="/storage/post_img/{{ $post->id }}.gif">
-                @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.mp4'))
-                    <video src="/storage/post_img/{{ $post->id }}.mp4" autoplay loop playsinline></video>
-                @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.mov'))
-                    <video src="/storage/post_img/{{ $post->id }}.mov" autoplay loop playsinline></video>
-                @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.wmv'))
-                    <video src="/storage/post_img/{{ $post->id }}.wmv" autoplay loop playsinline></video>
+                @if(file_exists(public_path().'/storage/post_img/'. $bookmark->post_id .'.jpg'))
+                    <img src="/storage/post_img/{{ $bookmark->post_id }}.jpg">
+                @elseif(file_exists(public_path().'/storage/post_img/'. $bookmark->post_id .'.jpeg'))
+                    <img src="/storage/post_img/{{ $bookmark->post_id }}.jpeg">
+                @elseif(file_exists(public_path().'/storage/post_img/'. $bookmark->post_id .'.png'))
+                    <img src="/storage/post_img/{{ $bookmark->post_id }}.png">
+                @elseif(file_exists(public_path().'/storage/post_img/'. $bookmark->post_id .'.gif'))
+                    <img src="/storage/post_img/{{ $bookmark->post_id }}.gif">
+                @elseif(file_exists(public_path().'/storage/post_img/'. $bookmark->post_id .'.mp4'))
+                    <video src="/storage/post_img/{{ $bookmark->post_id }}.mp4" autoplay loop playsinline></video>
+                @elseif(file_exists(public_path().'/storage/post_img/'. $bookmark->post_id .'.mov'))
+                    <video src="/storage/post_img/{{ $bookmark->post_id }}.mov" autoplay loop playsinline></video>
+                @elseif(file_exists(public_path().'/storage/post_img/'. $bookmark->post_id .'.wmv'))
+                    <video src="/storage/post_img/{{ $bookmark->post_id }}.wmv" autoplay loop playsinline></video>
                 @endif
             </div>
         </div>

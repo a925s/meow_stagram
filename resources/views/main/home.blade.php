@@ -59,12 +59,20 @@
                             <img src="{{ asset('/img/like-red.png') }}">
                         </div>
                     @endif
-                    <div class="photo-icon">
-                        <img src="{{ asset('/img/send.png') }}" alt="メッセージアイコン">
-                    </div>
-                    <div class="photo-bookmark-icon">
-                        <img src="{{ asset('/img/bookmark.svg') }}" alt="ブックマークアイコン">
-                    </div>
+
+                        <div class="photo-icon">
+                            <img src="{{ asset('/img/send.png') }}" alt="メッセージアイコン">
+                        </div>
+
+                    @if(is_null($post->post_bookmark_id()))
+                        <div class="photo-bookmark-icon js-bookmark" data-post-id="{{ $post->id }}" data-bookmark-id="null">
+                            <img src="{{ asset('/img/bookmark.svg') }}">
+                        </div>
+                    @else
+                        <div class="photo-bookmark-icon js-bookmark" data-post-id="{{ $post->id }}" data-bookmark-id="{{ $post->post_bookmark_id() }}">
+                            <img src="{{ asset('/img/bookmark-black.svg') }}">
+                        </div>
+                    @endif
                 </div>
                 <div class="text-box">
                     <p class="like-count">いいね！<span class="js-like-count">{{ $post->like_count() }}</span>件</p>

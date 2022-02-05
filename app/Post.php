@@ -26,6 +26,11 @@ class Post extends Model
         return $this->hasMany('App\Like');
     }
 
+    public function bookmarks()
+    {
+        return $this->hasMany('App\Bookmark');
+    }
+
     // data-like-idの値
     public function post_like_id() 
     {
@@ -45,5 +50,19 @@ class Post extends Model
         $like_count = Like::where('status', 'active')->where('post_id', $this->id)->count();
 
         return $like_count;
+    }
+
+    // data-bookmark-idの値
+    public function post_bookmark_id() 
+    {
+        $user_id = Auth::id();
+        $post_bookmark = Bookmark::where('status', 'active')->where('user_id', $user_id)->where('post_id', $this->id)->first();
+
+        if(!empty($post_bookmark)){
+            //レコードが存在するなら
+            return $post_bookmark->id;
+        }   
+            //レコードが存在しなければnull
+            return null;
     }
 }

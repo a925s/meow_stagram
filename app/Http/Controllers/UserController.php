@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Post;
+use App\Bookmark;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
@@ -47,12 +48,12 @@ class UserController extends Controller
     public function getMypageBookmark(Request $request)
     {
         $user = Auth::user(); //ブックマーク登録
-        $posts = $request->user()->posts()->where('status', 'active')->orderBy('created_at', 'desc')->get();
-        $post_count = $posts->count();
+        $post_count = $request->user()->posts()->where('status', 'active')->count();
+        $bookmarks = $request->user()->bookmarks()->where('status', 'active')->orderBy('created_at', 'desc')->get();
         return view('main.mypage_bookmark', [
             'user' => $user,
-            'posts' => $posts,
             'post_count' => $post_count,
+            'bookmarks' => $bookmarks,
         ]);
     }
 
