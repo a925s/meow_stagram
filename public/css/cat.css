@@ -193,8 +193,8 @@ side
         width: 100%;
         position: sticky;
         top: 0;
-        background-color:#ffffff;
-        z-index:100;
+        background-color: #ffffff;
+        z-index: 100;
     }
 
     .side-inner {
@@ -223,6 +223,7 @@ side
         top: 0px;
         right: 5px;
     }
+
     .side-inner .my-icon img {
         position: fixed;
         top: 12px;
@@ -232,6 +233,7 @@ side
     .side-inner a {
         padding: 0;
     }
+
     .side-inner img {
         width: 25px;
         height: 25px;
@@ -245,8 +247,9 @@ side
     .main {
         width: 100%;
     }
+
     .popover-body {
-        z-index:1000;
+        z-index: 1000;
     }
 }
 
@@ -731,9 +734,6 @@ search
 /**
 notification
 ****/
-.notifications-box {
-}
-
 .notifications-box .notification-box {
     border-bottom: 0.1px solid #A8998C;
     display: flex;
@@ -741,7 +741,7 @@ notification
 
 .notifications-box .notification-box .icon {
     width: 40px;
-    margin: 17px 30px;
+    margin: 20px 30px;
 }
 
 .notifications-box .notification-box .icon img {
@@ -749,6 +749,7 @@ notification
 }
 
 .notifications-box .notification-box .notification {
+    width: calc(100% - 40px);
 }
 
 .notifications-box .notification-box .notification .users-icon {
@@ -759,9 +760,6 @@ notification
 .notifications-box .notification-box .notification .users-icon .user-icon {
     width: 50px;
     margin-right: 10px;
-}
-
-.notifications-box .notification-box .notification .users-icon .user-icon a {
 }
 
 .notifications-box .notification-box .notification .users-icon .user-icon img {
@@ -779,6 +777,31 @@ notification
 
 .notifications-box .notification-box .notification span {
     font-weight: bold;
+}
+
+@media screen and (max-width: 530px) {
+    .notifications-box .notification-box .icon {
+        width: 30px;
+        margin: 20px 20px;
+    }
+
+    .notifications-box .notification-box .notification {
+        width: calc(100% - 30px);
+    }
+
+    .notifications-box .notification-box .notification .users-icon .user-icon {
+        width: 30px;
+        margin-top: 8px;
+    }
+
+    .notifications-box .notification-box .notification p {
+        font-size: 11px;
+    }
+
+    .notifications-box .notification-box .notification p.post {
+        color: #A8998C;
+        font-size: 9px;
+    }
 }
 
 /**
