@@ -82,7 +82,7 @@ class PostController extends Controller
      */
     public function getSearchRankPost(Request $request)
     {
-        $posts = Post::where('status', 'active')->get(); //TODO: like-count順
+        $posts = Post::where('status', 'active')->withCount('likes')->where('status', 'active')->orderBy('likes_count', 'desc')->get(); // like-count順
         return view('main.search_rank', [
             'posts' => $posts,
         ]);

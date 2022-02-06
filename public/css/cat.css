@@ -79,10 +79,12 @@ side
     border: 0.2px solid #aaa;
     object-fit: contain;
 }
-.popover{
+
+.popover {
     border: 1px solid #A8998C;
 }
-.popover-body a{
+
+.popover-body a {
     color: #A8998C;
     text-decoration: none;
 }
@@ -332,7 +334,7 @@ mypage
 }
 
 .btn-outline-dark:hover {
-    background-color:#ffffff;
+    background-color: #ffffff;
     color: #78614D;
     border-color: #78614D;
 }
@@ -342,6 +344,7 @@ mypage
     background-color: #78614D;
     border-color: #78614D;
 }
+
 .btn-reverse:hover {
     color: #fff;
     background-color: #78614D;
@@ -393,6 +396,44 @@ mypage
 }
 
 .mypage-name .my-name-box .button-box a {
+}
+
+@media screen and (max-width: 570px) {
+    .mypage-name .my-icon {
+        margin: 0;
+    }
+
+    .mypage-name .my-name-box .my-name h1 {
+        font-size: 20px;
+    }
+
+    .mypage-name .my-name-box .my-name p {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .mypage-name {
+        height: 100px;
+    }
+
+    .mypage-name .my-icon {
+        width: 100px;
+        height: 100px;
+        padding: 20px;
+    }
+
+    .mypage-name .my-name-box .my-name {
+        margin-top: 10px;
+    }
+
+    .mypage-name .my-name-box .button-box {
+        margin-top: 0px;
+    }
+
+    .mypage-name .my-name-box .button-box a {
+        font-size: 14px;
+    }
 }
 
 .mypage-name .user {
@@ -499,13 +540,252 @@ mypage
     height: 100%;
     object-fit: contain;
 }
+/**
+post_modal
+****/
+.mypage-posts .modal-content {
+    height: auto;
+}
+
+.mypage-posts .modal-body {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+.top-name{
+    display:none;
+}
+
+.mypage-posts .modal-body .photo {
+    width: 60%;
+    position: relative;
+}
+
+.mypage-posts .modal-body .photo::before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+
+.mypage-posts .modal-body .photo .photo-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-right: 1px solid #A8998C;
+}
+
+.mypage-posts .modal-body .photo .photo-box img {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    -webkit- transform: translateY(-50%) translateX(-50%);
+    height: 100%;
+    object-fit: contain;
+}
+
+.mypage-posts .modal-body .photo .photo-box video {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    -webkit- transform: translateY(-50%) translateX(-50%);
+    height: 100%;
+    object-fit: contain;
+}
+
+.mypage-posts .modal-body .modal-text-box {
+    width: 40%;
+}
+
+.mypage-posts .modal-body .modal-text-box .name {
+    display: flex;
+    height: 100px;
+    padding: 0;
+    border-bottom: 1px solid #A8998C;
+}
+
+.mypage-posts .modal-body .modal-text-box .name .post-my-icon {
+    width: 100px;
+    height: 100px;
+    padding: 15px;
+}
+
+.mypage-posts .modal-body .modal-text-box .name .post-my-icon img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: contain;
+    border: 0.2px solid #aaa;
+}
+
+.mypage-posts .modal-body .modal-text-box .name .post-my-name {
+    width: calc(100% - 120px);
+}
+
+.mypage-posts .modal-body .modal-text-box .name .post-my-name span {
+    line-height: 100px;
+    margin-left: 15px;
+}
+
+.mypage-posts .modal-body .modal-text-box .name .post-my-name span.nickname {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.mypage-posts .modal-body .modal-text-box .name .post-my-name span.user-name {
+    color: #A8998C;
+}
+.mypage-posts .modal-body .modal-text-box .name button{
+    padding-top:15px;
+    width: 20px;
+}
+.mypage-posts .modal-body .modal-text-box .top-text-box {
+    padding: 30px;
+    border-bottom: 1px solid #A8998C;
+    height: calc(100% - 200px);
+}
+
+.mypage-posts .modal-body .modal-text-box .top-text-box p {
+    margin-bottom: 30px;
+}
+
+.mypage-posts .modal-body .modal-text-box .top-text-box p.post-date {
+    color: #A8998C;
+    font-size: 15px;
+}
+
+.mypage-posts .modal-body .modal-text-box .photo-bottom-icon {
+    display: flex;
+    width: 100%;
+    height: 50px;
+    position: relative;
+}
+
+.mypage-posts .modal-body .modal-text-box .photo-bottom-icon .photo-icon {
+    width: 50px;
+}
+
+.mypage-posts .modal-body .modal-text-box .photo-bottom-icon .photo-bookmark-icon {
+    position: absolute;
+    right: 0;
+    width: 50px;
+}
+
+.mypage-posts .modal-body .modal-text-box .photo-bottom-icon img {
+    width: 100%;
+    padding: 10px;
+}
+
+.mypage-posts .modal-body .modal-text-box .bottom-text-box {height: 50px;}
+
+.mypage-posts .modal-body .modal-text-box .bottom-text-box .like-count {
+    padding: 10px;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 992px) {
+    .mypage-posts .modal-dialog {
+        max-width: none;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .mypage-posts .modal-body .modal-text-box .name .post-my-name span.nickname {
+    font-size: 18px;
+    margin: 0;
+}
+.mypage-posts .modal-body .modal-text-box .name .post-my-name span.user-name {
+    font-size: 13px;
+}
+}
+
+@media screen and (max-width: 675px) {
+    .mypage-posts .modal-dialog {
+        max-width: 400px;
+        margin: 20px auto;
+    }
+
+    .mypage-posts .modal-body {
+        display: block;
+    }
+
+    .mypage-posts .modal-body .photo {
+        width: 100%;
+    }
+
+    .mypage-posts .modal-body .photo .photo-box {
+        border-right: none;
+        border-bottom: 1px solid #A8998C;
+    }
+
+    .mypage-posts .modal-body .modal-text-box {
+        width: 100%;
+    }
+
+    .mypage-posts .modal-body .modal-text-box .top-text-box {
+        padding: 20px;
+    }
+
+    .mypage-posts .modal-body .modal-text-box .top-text-box p {
+        margin-bottom: 20px;
+    }
+    .mypage-posts .modal-body .modal-text-box .name {
+    display: none;
+}
+
+    .top-name {
+    display: flex;
+    justify-content: flex-start;
+    height: 100px;
+    padding: 0 10px;
+    border-bottom: 1px solid #A8998C;
+}
+
+.top-name .post-my-icon {
+    width: 100px;
+    height: 100px;
+    padding: 15px;
+}
+
+.top-name .post-my-icon img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: contain;
+    border: 0.2px solid #aaa;
+}
+
+.top-name .post-my-name {
+    width: calc(100% - 100px);
+}
+
+.top-name .post-my-name span {
+    line-height: 100px;
+    margin-left: 15px;
+}
+
+.top-name .post-my-name span.nickname {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.top-name .post-my-name span.user-name {
+    color: #A8998C;
+}
+}
 
 .btn-outline-dark:focus {
     box-shadow: none;
 }
-.modal-dialog .mypage{
+
+.modal-dialog .mypage {
     height: 600px;
 }
+
 /**
 search
 ****/

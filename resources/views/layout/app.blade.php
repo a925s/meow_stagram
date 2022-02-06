@@ -51,7 +51,7 @@
         </div>
 
         <div class="modal fade" id="js-modal" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <form action="/post" method="post" enctype="multipart/form-data">
                         @csrf

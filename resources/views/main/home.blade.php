@@ -24,7 +24,11 @@
                         </a>
                     </div>
                     <div class="post-my-name">
-                        <a href="#">
+                        @if($user->id == $post->user_id)
+                        <a href="/mypage/post">
+                        @else
+                        <a href="/user/{{ $post->user_id }}">
+                        @endif
                             <span class="nickname">{{ $post->user->nickname }}</span>
                             <span class="user-name">{{ '@'.$post->user->name }}</span>
                         </a>
