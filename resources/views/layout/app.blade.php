@@ -32,7 +32,7 @@
     <div class="container">
         <div class="side">
             <div class="side-inner">
-                <ul class="nav flex-column">
+                <ul class="nav">
                     <li class="nav-item top-icon"><a href="/sns" class="nav-link top-icon"><img src="{{ asset('/img/cat.jpg') }}" class="top-icon" alt="猫アイコン"></a></li>
                     <li class="nav-item"><a href="/sns" class="nav-link"><img src="{{ asset('/img/home.png') }}" alt="ホームアイコン"><p>ホーム</p></a></li>
                     <li class="nav-item"><a href="/search" class="nav-link"><img src="{{ asset('/img/search.svg') }}" alt="検索アイコン"><p>検索</p></a></li>
