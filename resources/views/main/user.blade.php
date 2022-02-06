@@ -35,7 +35,7 @@
     </div>
     <div class="count-box line">
         <p>フォロワー</p>
-        <p class="lang-color">{{ $followed_count }}</p>
+        <p class="lang-color js-follow-count">{{ $followed_count }}</p>
         <p>人</p>
     </div>
     <div class="count-box">

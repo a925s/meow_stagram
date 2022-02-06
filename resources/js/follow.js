@@ -7,6 +7,8 @@ $(function () {
         const this_obj = $(this);
         const followed_user_id = $(this).data('followed-user-id');
         const follow_id = $(this).data('follow-id');
+        const follow_count_obj = $(this).parents().find('.js-follow-count');
+        let follow_count = Number(follow_count_obj.html());
         cache: false
         if (follow_id) {
             // フォロー取り消し
@@ -23,6 +25,9 @@ $(function () {
             })
                 // 取り消し成功
                 .done(() => {
+                    // フォロワーカウントを減らす
+                    follow_count--;
+                    follow_count_obj.html(follow_count);
                     // フォローボタンを白にする
                     this_obj.removeClass('btn-reverse');
                     // フォローボタンの文言変更
@@ -50,6 +55,9 @@ $(function () {
             })
                 // フォロー成功
                 .done((data) => {
+                    // フォローカウントを増やす
+                    follow_count++;
+                    follow_count_obj.html(follow_count);
                     // フォローボタンを茶色にする
                     this_obj.addClass('btn-reverse');
                     // フォローボタンの文言変更

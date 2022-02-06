@@ -69,14 +69,14 @@ class User extends Authenticatable
         return $this->hasMany('App\Notification');
     }
 
-    // フォロワー→フォロー
-    public function follow()
+    // フォロワー
+    public function followed()
     {
         return $this->belongsToMany('App\User', 'follows', 'followed_user_id', 'follow_user_id');
     }
 
-    // フォロー→フォロワー
-    public function followed()
+    // フォロー
+    public function follow()
     {
         return $this->belongsToMany('App\User', 'follows', 'follow_user_id', 'followed_user_id');
     }

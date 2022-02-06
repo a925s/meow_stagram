@@ -10994,6 +10994,8 @@ $(function () {
     var this_obj = $(this);
     var followed_user_id = $(this).data('followed-user-id');
     var follow_id = $(this).data('follow-id');
+    var follow_count_obj = $(this).parents().find('.js-follow-count');
+    var follow_count = Number(follow_count_obj.html());
 
     cache: false;
 
@@ -11012,7 +11014,10 @@ $(function () {
         timeout: 10000
       }) // 取り消し成功
       .done(function () {
-        // フォローボタンを白にする
+        // フォロワーカウントを減らす
+        follow_count--;
+        follow_count_obj.html(follow_count); // フォローボタンを白にする
+
         this_obj.removeClass('btn-reverse'); // フォローボタンの文言変更
 
         this_obj.text('フォローする'); // フォローIDを削除
@@ -11038,7 +11043,10 @@ $(function () {
         timeout: 10000
       }) // フォロー成功
       .done(function (data) {
-        // フォローボタンを茶色にする
+        // フォローカウントを増やす
+        follow_count++;
+        follow_count_obj.html(follow_count); // フォローボタンを茶色にする
+
         this_obj.addClass('btn-reverse'); // フォローボタンの文言変更
 
         this_obj.text('フォローを外す'); // フォローIDを付与
