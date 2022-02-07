@@ -25,6 +25,7 @@
     <script src="{{ mix('js/like.js') }}" defer></script>
     <script src="{{ mix('js/bookmark.js') }}" defer></script>
     <script src="{{ mix('js/follow.js') }}" defer></script>
+    <script src="{{ mix('js/cat.js') }}" defer></script>
 
     <title>@yield('title')</title>
 </head>
@@ -40,7 +41,7 @@
                     <li class="nav-item"><a href="/message" class="nav-link"><img src="{{ asset('/img/send.png') }}" alt="メッセージアイコン"><p>メッセージ</p></a></li>
                     <li class="nav-item"><a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#js-modal"><img src="{{ asset('/img/post.png') }}" alt="投稿アイコン"><p>投稿</p></a></li>
                     <li class="nav-item my-icon js-popover" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-html="true" data-bs-content="<a href='/mypage/post'>プロフィール</a><br><a href='{{ route('logout') }}'>ログアウト</a>">
-                        @if(isset($user->image_path))
+                        @if(isset(Auth::user()->image_path))
                         <img src="{{ Storage::url(Auth::user()->image_path) }}" class="my-icon" alt="マイアイコン">
                         @else
                         <img src="{{ asset('/img/cat.jpg') }}" class="my-icon" alt="マイアイコン">

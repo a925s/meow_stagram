@@ -30,11 +30,11 @@ class PostController extends Controller
     public function getHomePost(Request $request)
     {
         $posts = Post::where('status', 'active')->orderBy('created_at', 'desc')->get();
-        $user = Auth::user();
+        $user_id = Auth::id();
 
         return view('main.home', [
             'posts' => $posts,
-            'user' => $user,
+            'user_id' => $user_id,
         ]);
     }
 
@@ -69,8 +69,10 @@ class PostController extends Controller
     public function getSearchPost(Request $request)
     {
         $posts = Post::where('status', 'active')->inRandomOrder()->get();
+        $user_id = Auth::id();
         return view('main.search', [
             'posts' => $posts,
+            'user_id' => $user_id,
         ]);
     }
 
@@ -83,8 +85,10 @@ class PostController extends Controller
     public function getSearchRankPost(Request $request)
     {
         $posts = Post::where('status', 'active')->withCount('likes')->where('status', 'active')->orderBy('likes_count', 'desc')->get(); // like-count順
+        $user_id = Auth::id();
         return view('main.search_rank', [
             'posts' => $posts,
+            'user_id' => $user_id,
         ]);
     }
 
@@ -97,8 +101,10 @@ class PostController extends Controller
     public function getSearchNewPost(Request $request)
     {
         $posts = Post::where('status', 'active')->orderBy('created_at', 'desc')->get();
+        $user_id = Auth::id();
         return view('main.search_new', [
             'posts' => $posts,
+            'user_id' => $user_id,
         ]);
     }
 
@@ -111,8 +117,10 @@ class PostController extends Controller
     public function getSearchVideoPost(Request $request)
     {
         $posts = Post::where('status', 'active')->orderBy('created_at', 'desc')->get();
+        $user_id = Auth::id();
         return view('main.search_video', [
             'posts' => $posts,
+            'user_id' => $user_id,
         ]);
     }
 }

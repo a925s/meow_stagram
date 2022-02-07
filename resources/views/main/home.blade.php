@@ -11,7 +11,7 @@
             <div class="post-box">
                 <div class="name">
                     <div class="post-my-icon">
-                        @if($user->id == $post->user_id)
+                        @if($user_id == $post->user_id)
                         <a href="/mypage/post">
                         @else
                         <a href="/user/{{ $post->user_id }}">
@@ -24,7 +24,7 @@
                         </a>
                     </div>
                     <div class="post-my-name">
-                        @if($user->id == $post->user_id)
+                        @if($user_id == $post->user_id)
                         <a href="/mypage/post">
                         @else
                         <a href="/user/{{ $post->user_id }}">

@@ -264,9 +264,6 @@ ditch
 /**
 main_post
 ****/
-.posts-box {
-}
-
 .posts-box .post-box {
     border-top: 0.1px solid #A8998C;
 }
@@ -446,9 +443,6 @@ mypage
     object-fit: contain;
 }
 
-.mypage-name .my-name-box {
-}
-
 .mypage-name .my-name-box .my-name {
     margin-top: 30px;
     display: flex;
@@ -456,7 +450,7 @@ mypage
 }
 
 .mypage-name .my-name-box .my-name h1 {
-    font-size: 27px;
+    font-size: 25px;
     line-height: 45px;
 }
 
@@ -468,9 +462,6 @@ mypage
 
 .mypage-name .my-name-box .button-box {
     margin-top: 7px;
-}
-
-.mypage-name .my-name-box .button-box a {
 }
 
 @media screen and (max-width: 570px) {
@@ -682,53 +673,63 @@ search
 .order-box .order p.video {
     border-bottom: 3px solid #78614D;
 }
-
-.search-posts {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.search-posts .post-box {
-    width: 50%;
-    position: relative;
-}
-
-.search-posts .post-box::before {
-    content: "";
-    display: block;
-    padding-top: 100%;
-}
-
-.search-posts .post-box .photo-box {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
+/**
+search_hover
+****/
+.hover-box{
+    position:absolute;
+    top: 60%;
     right: 0;
-    border-right: 0.1px solid #A8998C;
-    border-bottom: 0.1px solid #A8998C;
+    width: 90%;
+    height: 80%;
+    background-color: #ffffff;
+    z-index: 10000;
+    border-radius: 3px;
+    box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
+    display: none;
 }
-
-.search-posts .post-box .photo-box img {
-    position: absolute;
-    width: 100%;
-    top: 50%;
-    left: 50%;
-    transform: translateY(-50%) translateX(-50%);
-    -webkit- transform: translateY(-50%) translateX(-50%);
-    height: 100%;
-    object-fit: contain;
+.hover-box a{
+    z-index: 10000000;
 }
-
-.search-posts .post-box .photo-box video {
-    position: absolute;
-    width: 100%;
-    top: 50%;
-    left: 50%;
-    transform: translateY(-50%) translateX(-50%);
-    -webkit- transform: translateY(-50%) translateX(-50%);
+.hover-box .mypage-name{height: 50%;}
+.hover-box .mypage-name .my-icon{
+    width: 60px;
+    height: 60px;
+    margin: 20px 0;
+    padding: 7px;
+}
+.hover-box .mypage-name .my-icon img{}
+.hover-box .mypage-name .my-name-box{
+    width: calc(100% - 60px);
     height: 100%;
-    object-fit: contain;
+    padding-left: 10px;
+}
+.hover-box .mypage-name .my-name-box p.follow-now{
+    color: #A8998C;
+    font-size: 12px;
+}
+.hover-box .mypage-name .my-name-box .my-name{
+    margin-top: 20px;
+    height: 30px;
+}
+.hover-box .mypage-name .my-name-box .my-name a{
+    text-decoration: none;
+    color: #000000;
+    display: inline-flex;
+}
+.hover-box .mypage-name .my-name-box .my-name h1{
+    line-height: 30px;
+    font-size: 18px;
+}
+.hover-box .mypage-name .my-name-box .my-name p{
+    margin-left: 10px;
+    line-height: 30px;
+    font-size: 12px;
+}
+.hover-box .mypage-name .my-name-box .button-box{
+}
+.hover-box .mypage-name .my-name-box .button-box a{
+    padding: 2px 10px;
 }
 
 /**
@@ -807,9 +808,6 @@ notification
 /**
 message
 ****/
-.messages {
-}
-
 .messages a {
     display: block;
     height: 100px;
@@ -834,9 +832,6 @@ message
     border-radius: 50%;
 }
 
-.messages .message-box .message-name {
-}
-
 .messages .message-box .message-name h2 {
     color: #000000;
     font-size: 18px;
@@ -852,6 +847,30 @@ message
 .messages .message-box .message-name span {
     position: absolute;
     right: 5px;
+}
+
+@media screen and (max-width: 550px) {
+    .messages a {
+        height: 70px;
+    }
+
+    .messages .message-box {
+        height: 70px;
+    }
+
+    .messages .message-box .message-icon {
+        margin: 0 20px;
+        width: 70px;
+    }
+
+    .messages .message-box .message-name h2 {
+        font-size: 15px;
+        margin: 10px 0 0 0;
+    }
+
+    .messages .message-box .message-name p {
+        font-size: 11px;
+    }
 }
 
 /**

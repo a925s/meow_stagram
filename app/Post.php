@@ -65,4 +65,25 @@ class Post extends Model
             //レコードが存在しなければnull
             return null;
     }
+
+    // 投稿ユーザーの投稿カウント
+    public function post_count(){
+        $user = User::find($this->user_id);
+        $post_count = $user->posts()->where('status', 'active')->orderBy('created_at', 'desc')->count();
+        return $post_count;
+    }
+
+    // 投稿ユーザーのフォローカウント
+    public function follow_count(){
+        $user = User::find($this->user_id);
+        $follow_count = $user->follow()->where('status', 'active')->count();
+        return $follow_count;
+    }
+
+    // 投稿ユーザーのフォロワーカウント
+    public function followed_count(){
+        $user = User::find($this->user_id);
+        $followed_count = $user->followed()->where('status', 'active')->count();
+        return $followed_count;
+    }
 }

@@ -32,7 +32,7 @@
         <p class="p-3">投稿がありません。</p>
     @else
         @foreach($posts as $post)
-        <div class="post-box" data-bs-toggle="modal" data-bs-target="#post-modal-{{ $post->id }}">
+        <div class="post-box" data-bs-toggle="modal" data-bs-target="#post-modal-{{ $post->id }}" data-hover-id="{{ $post->id }}">
             <div class="photo-box">
                 @if(file_exists(public_path().'/storage/post_img/'. $post->id .'.jpg'))
                     <img src="/storage/post_img/{{ $post->id }}.jpg">
@@ -49,6 +49,55 @@
                 @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.wmv'))
                     <video src="/storage/post_img/{{ $post->id }}.wmv" autoplay loop playsinline></video>
                 @endif
+            </div>
+            <div class="hover-box hover-box-{{ $post->id }}">
+                <div class="mypage-name">
+                    <div class="my-icon">
+                        @if($user_id == $post->user_id)
+                        <a href="/mypage/post">
+                        @else
+                        <a href="/user/{{ $post->user_id }}">
+                        @endif
+                            @if(isset($user->image_path))
+                            <img src="{{ Storage::url($user->image_path) }}" alt="マイアイコン">
+                            @else
+                            <img src="{{ asset('/img/cat.jpg') }}" alt="マイアイコン">
+                            @endif
+                        </a>
+                    </div>
+                    <div class="my-name-box">
+                        <div class="my-name">
+                            @if($user_id == $post->user_id)
+                            <a href="/mypage/post">
+                            @else
+                            <a href="/user/{{ $post->user_id }}">
+                            @endif
+                                <h1>{{ $post->user->nickname }}</h1>
+                                <p>{{ '@'.$post->user->name }}</p>
+                            </a>
+                        </div>
+                        @if(!is_null($post->user->follow_id()))
+                            <p class="follow-now">フォローしています</p>
+                        @endif
+                    </div>
+                </div>
+                <div class="count">
+                    <div class="count-box line">
+                        <p>投稿</p>
+                        <p class="lang-color">{{ $post->post_count() }}</p>
+                        <p>件</p>
+                    </div>
+                    <div class="count-box line">
+                        <p>フォロワー</p>
+                        <p class="lang-color js-follow-count">{{ $post->followed_count() }}</p>
+                        <p>人</p>
+                    </div>
+                    <div class="count-box">
+                        <p>フォロー</p>
+                        <p class="lang-color">{{ $post->follow_count() }}</p>
+                        <p>人</p>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="modal fade" id="post-modal-{{ $post->id }}" tabindex="-1" aria-hidden="true">
