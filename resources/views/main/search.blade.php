@@ -53,28 +53,16 @@
             <div class="hover-box hover-box-{{ $post->id }}">
                 <div class="mypage-name">
                     <div class="my-icon">
-                        @if($user_id == $post->user_id)
-                        <a href="/mypage/post">
+                        @if(isset($post->user->image_path))
+                        <img src="{{ Storage::url($post->user->image_path) }}" alt="マイアイコン">
                         @else
-                        <a href="/user/{{ $post->user_id }}">
+                        <img src="{{ asset('/img/cat.jpg') }}" alt="マイアイコン">
                         @endif
-                            @if(isset($user->image_path))
-                            <img src="{{ Storage::url($user->image_path) }}" alt="マイアイコン">
-                            @else
-                            <img src="{{ asset('/img/cat.jpg') }}" alt="マイアイコン">
-                            @endif
-                        </a>
                     </div>
                     <div class="my-name-box">
                         <div class="my-name">
-                            @if($user_id == $post->user_id)
-                            <a href="/mypage/post">
-                            @else
-                            <a href="/user/{{ $post->user_id }}">
-                            @endif
-                                <h1>{{ $post->user->nickname }}</h1>
-                                <p>{{ '@'.$post->user->name }}</p>
-                            </a>
+                            <h1>{{ $post->user->nickname }}</h1>
+                            <p>{{ '@'.$post->user->name }}</p>
                         </div>
                         @if(!is_null($post->user->follow_id()))
                             <p class="follow-now">フォローしています</p>
@@ -104,7 +92,7 @@
             <div class="modal-dialog modal-dialog-centered modal-xl">
                 <div class="modal-content">
                     <div class="modal-body">
-                        <div class="top-name">
+                        <div class="top-name modal-name" data-user-id="{{ $user_id }}" data-post-user-id="{{ $post->user->id }}">
                             <div class="post-my-icon">
                                 @if(isset($post->user->image_path))
                                 <img src="{{ Storage::url($post->user->image_path) }}" alt="マイアイコン">
@@ -137,7 +125,7 @@
                             </div>
                         </div>
                         <div class="modal-text-box">
-                            <div class="name">
+                            <div class="name modal-name" data-user-id="{{ $user_id }}" data-post-user-id="{{ $post->user->id }}">
                                 <div class="post-my-icon">
                                     @if(isset($post->user->image_path))
                                     <img src="{{ Storage::url($post->user->image_path) }}" alt="マイアイコン">

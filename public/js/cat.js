@@ -10995,6 +10995,16 @@ return jQuery;
 
   $('.hover-box-' + hover_id).css('display', 'none');
 });
+$('.modal-name').click(function () {
+  var user_id = $(this).data('user-id');
+  var post_user_id = $(this).data('post-user-id');
+
+  if (user_id == post_user_id) {
+    window.location.href = '/mypage/post';
+  } else {
+    window.location.href = '/user/' + post_user_id;
+  }
+});
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
 
 /***/ }),

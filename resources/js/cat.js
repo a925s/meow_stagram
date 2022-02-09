@@ -12,3 +12,13 @@ $('.post-box').hover(
         
     }
 );
+
+$('.modal-name').click(function () {
+    const user_id = $(this).data('user-id');
+    const post_user_id = $(this).data('post-user-id');
+    if(user_id == post_user_id){
+        window.location.href = '/mypage/post';
+    }else{
+        window.location.href = '/user/' + post_user_id;
+    }
+});
