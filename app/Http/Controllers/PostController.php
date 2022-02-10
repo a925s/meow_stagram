@@ -29,12 +29,12 @@ class PostController extends Controller
      */
     public function getHomePost(Request $request)
     {
-        $posts = Post::where('status', 'active')->orderBy('created_at', 'desc')->get();
-        $user_id = Auth::id();
+        $user = Auth::user();
+        $posts = Post::query()->whereIn('user_id', $user->follow()->pluck('followed_user_id'))->orderBy('created_at', 'desc')->get();
 
         return view('main.home', [
+            'user' => $user,
             'posts' => $posts,
-            'user_id' => $user_id,
         ]);
     }
 
