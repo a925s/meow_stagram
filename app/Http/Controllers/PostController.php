@@ -61,66 +61,26 @@ class PostController extends Controller
     }
 
     /**
-     *  検索トップ表示
+     *  検索表示
      * 
      *  @param Request $request
      *  @return Response
      */
-    public function getSearchPost(Request $request)
+    public function getSearchPost(Request $request, $type = null)
     {
-        $posts = Post::where('status', 'active')->inRandomOrder()->get();
         $user_id = Auth::id();
+
+        if($type == 'rank'){
+            $posts = Post::where('status', 'active')->withCount('likes')->where('status', 'active')->orderBy('likes_count', 'desc')->get(); // like-count順
+        }elseif($type == 'new'){
+            $posts = Post::where('status', 'active')->orderBy('created_at', 'desc')->get(); // created_at順
+        }else{
+            $posts = Post::where('status', 'active')->inRandomOrder()->get(); // ランダム
+        }
         return view('main.search', [
             'posts' => $posts,
             'user_id' => $user_id,
-        ]);
-    }
-
-    /**
-     *  検索人気表示
-     * 
-     *  @param Request $request
-     *  @return Response
-     */
-    public function getSearchRankPost(Request $request)
-    {
-        $posts = Post::where('status', 'active')->withCount('likes')->where('status', 'active')->orderBy('likes_count', 'desc')->get(); // like-count順
-        $user_id = Auth::id();
-        return view('main.search_rank', [
-            'posts' => $posts,
-            'user_id' => $user_id,
-        ]);
-    }
-
-    /**
-     *  検索最新表示
-     * 
-     *  @param Request $request
-     *  @return Response
-     */
-    public function getSearchNewPost(Request $request)
-    {
-        $posts = Post::where('status', 'active')->orderBy('created_at', 'desc')->get();
-        $user_id = Auth::id();
-        return view('main.search_new', [
-            'posts' => $posts,
-            'user_id' => $user_id,
-        ]);
-    }
-
-    /**
-     *  検索動画表示
-     * 
-     *  @param Request $request
-     *  @return Response
-     */
-    public function getSearchVideoPost(Request $request)
-    {
-        $posts = Post::where('status', 'active')->orderBy('created_at', 'desc')->get();
-        $user_id = Auth::id();
-        return view('main.search_video', [
-            'posts' => $posts,
-            'user_id' => $user_id,
+            'type' => $type,
         ]);
     }
 }

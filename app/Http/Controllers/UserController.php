@@ -22,47 +22,43 @@ class UserController extends Controller
     }
 
     /**
-     *  マイページ(post)表示
+     *  マイページ表示
      * 
      *  @param Request $request
      *  @return Response
      */
-    public function getMypagePost(Request $request)
+    public function getMypage(Request $request, $type)
     {
         $user = Auth::user();
-        $posts = $request->user()->posts()->where('status', 'active')->orderBy('created_at', 'desc')->get();
-        $post_count = $posts->count();
+        if($type == 'post'){
+            $posts = $request->user()->posts()->where('status', 'active')->orderBy('created_at', 'desc')->get();
+            $post_count = $posts->count();
+        }elseif($type == 'bookmark'){
+            $bookmarks = $request->user()->bookmarks()->where('status', 'active')->orderBy('created_at', 'desc')->get();
+            $post_count = $request->user()->posts()->where('status', 'active')->count();
+        }
         $follow_count = $user->follow()->where('status', 'active')->count();
         $followed_count = $user->followed()->where('status', 'active')->count();
-        return view('main.mypage_post', [
-            'user' => $user,
-            'posts' => $posts,
-            'post_count' => $post_count,
-            'follow_count' => $follow_count,
-            'followed_count' => $followed_count,
-        ]);
-    }
 
-    /**
-     *  マイページ(bookmark)表示
-     * 
-     *  @param Request $request
-     *  @return Response
-     */
-    public function getMypageBookmark(Request $request)
-    {
-        $user = Auth::user(); //ブックマーク登録
-        $post_count = $request->user()->posts()->where('status', 'active')->count();
-        $bookmarks = $request->user()->bookmarks()->where('status', 'active')->orderBy('created_at', 'desc')->get();
-        $follow_count = $user->follow()->where('status', 'active')->count();
-        $followed_count = $user->followed()->where('status', 'active')->count();
-        return view('main.mypage_bookmark', [
-            'user' => $user,
-            'post_count' => $post_count,
-            'bookmarks' => $bookmarks,
-            'follow_count' => $follow_count,
-            'followed_count' => $followed_count,
-        ]);
+        if($type == 'post'){
+            return view('main.mypage', [
+                'user' => $user,
+                'posts' => $posts,
+                'post_count' => $post_count,
+                'follow_count' => $follow_count,
+                'followed_count' => $followed_count,
+                'type' => $type,
+            ]);
+        }elseif($type == 'bookmark'){
+            return view('main.mypage', [
+                'user' => $user,
+                'bookmarks' => $bookmarks,
+                'post_count' => $post_count,
+                'follow_count' => $follow_count,
+                'followed_count' => $followed_count,
+                'type' => $type,
+            ]);
+        }
     }
 
     /**

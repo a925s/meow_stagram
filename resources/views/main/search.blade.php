@@ -6,24 +6,37 @@
 <div class="search-box">
     <div class="search">
         <form action="#" method="get">
-            <input type="text" name="search" placeholder="   検索">
+            <input type="text" name="search" value="">
+            <button class="btn" type="submit">検索</button>
         </form>
     </div>
 </div>
 <div class="order-box">
     <a href="/search/rank">
         <div class="order">
+            @if($type == 'rank')
+            <p class="rank-main">人気</p>
+            @else
             <p>人気</p>
+            @endif
         </div>
     </a>
     <a href="/search/new">
         <div class="order">
+            @if($type == 'new')
+            <p class="new">最新</p>
+            @else
             <p>最新</p>
+            @endif
         </div>
     </a>
     <a href="/search/video">
         <div class="order">
+            @if($type == 'video')
+            <p class="video">動画</p>
+            @else
             <p>動画</p>
+            @endif
         </div>
     </a>
 </div>
@@ -32,6 +45,58 @@
         <p class="p-3">投稿がありません。</p>
     @else
         @foreach($posts as $post)
+        @if($type == 'video')
+            @if(file_exists(public_path().'/storage/post_img/'. $post->id .'.mp4') || file_exists(public_path().'/storage/post_img/'. $post->id .'.mov') || file_exists(public_path().'/storage/post_img/'. $post->id .'.wmv'))
+            <div class="post-box" data-bs-toggle="modal" data-bs-target="#post-modal-{{ $post->id }}" data-hover-id="{{ $post->id }}">
+                <div class="photo-box">
+                    @if(file_exists(public_path().'/storage/post_img/'. $post->id .'.mp4'))
+                        <video src="/storage/post_img/{{ $post->id }}.mp4" autoplay loop playsinline></video>
+                    @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.mov'))
+                        <video src="/storage/post_img/{{ $post->id }}.mov" autoplay loop playsinline></video>
+                    @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.wmv'))
+                        <video src="/storage/post_img/{{ $post->id }}.wmv" autoplay loop playsinline></video>
+                    @endif
+                </div>
+                <div class="hover-box hover-box-{{ $post->id }}">
+                    <div class="mypage-name">
+                        <div class="my-icon">
+                            @if(isset($post->user->image_path))
+                            <img src="{{ Storage::url($post->user->image_path) }}" alt="マイアイコン">
+                            @else
+                            <img src="{{ asset('/img/cat.jpg') }}" alt="マイアイコン">
+                            @endif
+                        </div>
+                        <div class="my-name-box">
+                            <div class="my-name">
+                                <h1>{{ $post->user->nickname }}</h1>
+                                <p>{{ '@'.$post->user->name }}</p>
+                            </div>
+                            @if(!is_null($post->user->follow_id()))
+                                <p class="follow-now">フォローしています</p>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="count">
+                        <div class="count-box line">
+                            <p>投稿</p>
+                            <p class="lang-color">{{ $post->post_count() }}</p>
+                            <p>件</p>
+                        </div>
+                        <div class="count-box line">
+                            <p>フォロワー</p>
+                            <p class="lang-color js-follow-count">{{ $post->followed_count() }}</p>
+                            <p>人</p>
+                        </div>
+                        <div class="count-box">
+                            <p>フォロー</p>
+                            <p class="lang-color">{{ $post->follow_count() }}</p>
+                            <p>人</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endif
+        @else
         <div class="post-box" data-bs-toggle="modal" data-bs-target="#post-modal-{{ $post->id }}" data-hover-id="{{ $post->id }}">
             <div class="photo-box">
                 @if(file_exists(public_path().'/storage/post_img/'. $post->id .'.jpg'))
@@ -88,6 +153,7 @@
                 </div>
             </div>
         </div>
+        @endif
         <div class="modal fade" id="post-modal-{{ $post->id }}" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-xl">
                 <div class="modal-content">
@@ -125,15 +191,15 @@
                             </div>
                         </div>
                         <div class="modal-text-box">
-                            <div class="name modal-name" data-user-id="{{ $user_id }}" data-post-user-id="{{ $post->user->id }}">
-                                <div class="post-my-icon">
+                            <div class="name">
+                                <div class="post-my-icon modal-name" data-user-id="{{ $user_id }}" data-post-user-id="{{ $post->user->id }}">
                                     @if(isset($post->user->image_path))
                                     <img src="{{ Storage::url($post->user->image_path) }}" alt="マイアイコン">
                                     @else
                                     <img src="{{ asset('/img/cat.jpg') }}" alt="マイアイコン">
                                     @endif
                                 </div>
-                                <div class="post-my-name">
+                                <div class="post-my-name modal-name" data-user-id="{{ $user_id }}" data-post-user-id="{{ $post->user->id }}">
                                     <span class="nickname">{{ $post->user->nickname }}</span>
                                     <span class="user-name">{{ '@'.$post->user->name }}</span>
                                 </div>

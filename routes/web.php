@@ -21,9 +21,7 @@ Route::post('/like', 'LikeController@like');
 
 Route::post('/bookmark', 'BookmarkController@bookmark');
 
-Route::get('/mypage/post', 'UserController@getMypagePost');
-
-Route::get('/mypage/bookmark', 'UserController@getMypageBookmark');
+Route::get('/mypage/{type}', 'UserController@getMypage');
 
 Route::post('/update', 'UserController@updateUser');
 
@@ -31,13 +29,7 @@ Route::get('/user/{id}', 'UserController@getUserPage');
 
 Route::post('/follow', 'FollowController@follow');
 
-Route::get('/search', 'PostController@getSearchPost');
-
-Route::get('/search/rank', 'PostController@getSearchRankPost');
-
-Route::get('/search/new', 'PostController@getSearchNewPost');
-
-Route::get('/search/video', 'PostController@getSearchVideoPost');
+Route::get('/search/{type?}', 'PostController@getSearchPost');
 
 Route::get('/notification', function () {
     return view('main.notification');
@@ -48,10 +40,6 @@ Route::get('/message', function () {
 });
 
 Route::post('/post', 'PostController@post');
-
-
-
-
 
 
 Auth::routes();

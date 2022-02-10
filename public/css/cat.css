@@ -629,9 +629,20 @@ search
 
 .search-box .search input {
     height: 40px;
-    width: 80%;
+    width: 60%;
     border: 1px solid #78614D;
     border-radius: 100px;
+    padding: 0 15px;
+}
+.search-box .search input:focus{outline: #78614D;}
+.search-box .search button{
+    color: #ffffff;
+    background-color: #78614D;
+    margin-left: 20px;
+    margin-bottom: 3px;
+}
+.search-box .search button:focus{
+    box-shadow: none;
 }
 
 .order-box {
