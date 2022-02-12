@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use App\Like;
+use App\User;
 
 use Illuminate\Http\Request;
 
@@ -30,7 +31,7 @@ class PostController extends Controller
     public function getHomePost(Request $request)
     {
         $user = Auth::user();
-        $posts = Post::query()->whereIn('user_id', $user->follow()->pluck('followed_user_id'))->orderBy('created_at', 'desc')->get();
+        $posts = Post::whereIn('user_id', $user->follow()->pluck('followed_user_id'))->orderBy('created_at', 'desc')->get();
 
         return view('main.home', [
             'user' => $user,
@@ -69,18 +70,45 @@ class PostController extends Controller
     public function getSearchPost(Request $request, $type = null)
     {
         $user_id = Auth::id();
+        $keyword = null;
+        $keyword = $request->keyword;
 
         if($type == 'rank'){
-            $posts = Post::where('status', 'active')->withCount('likes')->where('status', 'active')->orderBy('likes_count', 'desc')->get(); // like-count順
+            if(isset($keyword)){
+                $user_ids = User::where('name', 'LIKE', "%{$keyword}%")->orWhere('nickname', 'LIKE', "%{$keyword}%")->pluck('id')->toArray();
+                $posts = Post::whereIn('user_id', $user_ids)->where('status', 'active')->withCount('likes')->where('status', 'active')->orderBy('likes_count', 'desc')->get();
+            }else{
+                $posts = Post::where('status', 'active')->withCount('likes')->where('status', 'active')->orderBy('likes_count', 'desc')->get(); // like-count順
+            }
         }elseif($type == 'new'){
-            $posts = Post::where('status', 'active')->orderBy('created_at', 'desc')->get(); // created_at順
+            if(isset($keyword)){
+                $user_ids = User::where('name', 'LIKE', "%{$keyword}%")->orWhere('nickname', 'LIKE', "%{$keyword}%")->pluck('id')->toArray();
+                $posts = Post::whereIn('user_id', $user_ids)->where('status', 'active')->orderBy('created_at', 'desc')->get();
+            }else{
+                $posts = Post::where('status', 'active')->orderBy('created_at', 'desc')->get(); // created_at順
+            }
         }else{
-            $posts = Post::where('status', 'active')->inRandomOrder()->get(); // ランダム
+            if(isset($keyword)){
+                $user_ids = User::where('name', 'LIKE', "%{$keyword}%")->orWhere('nickname', 'LIKE', "%{$keyword}%")->pluck('id')->toArray();
+                $posts = Post::whereIn('user_id', $user_ids)->where('status', 'active')->orderBy('created_at', 'desc')->get();
+            }else{
+                $posts = Post::where('status', 'active')->inRandomOrder()->get(); // ランダム
+            }
         }
-        return view('main.search', [
-            'posts' => $posts,
-            'user_id' => $user_id,
-            'type' => $type,
-        ]);
+
+        if(isset($keyword)){
+            return view('main.search', [
+                'posts' => $posts,
+                'user_id' => $user_id,
+                'type' => $type,
+                'keyword' => $keyword,
+            ]);
+        }else{
+            return view('main.search', [
+                'posts' => $posts,
+                'user_id' => $user_id,
+                'type' => $type,
+            ]);
+        }
     }
 }

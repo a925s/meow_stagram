@@ -46,7 +46,8 @@ class Post extends Model
     }
 
     // like-countの値
-    public function like_count(){
+    public function like_count()
+    {
         $like_count = Like::where('status', 'active')->where('post_id', $this->id)->count();
 
         return $like_count;
@@ -67,21 +68,24 @@ class Post extends Model
     }
 
     // 投稿ユーザーの投稿カウント
-    public function post_count(){
+    public function post_count()
+    {
         $user = User::find($this->user_id);
         $post_count = $user->posts()->where('status', 'active')->orderBy('created_at', 'desc')->count();
         return $post_count;
     }
 
     // 投稿ユーザーのフォローカウント
-    public function follow_count(){
+    public function follow_count()
+    {
         $user = User::find($this->user_id);
         $follow_count = $user->follow()->where('status', 'active')->count();
         return $follow_count;
     }
 
     // 投稿ユーザーのフォロワーカウント
-    public function followed_count(){
+    public function followed_count()
+    {
         $user = User::find($this->user_id);
         $followed_count = $user->followed()->where('status', 'active')->count();
         return $followed_count;

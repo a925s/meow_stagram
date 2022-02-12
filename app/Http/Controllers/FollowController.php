@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Follow;
+use App\Notification;
+
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
@@ -38,12 +40,24 @@ class FollowController extends Controller
             $follow->followed_user_id = $followed_user_id;
             $follow->save();
             $follow_id = $follow->id;
+
+            $notification = new Notification;
+            $notification->received_user_id = $followed_user_id;
+            $notification->sent_user_id = $follow_user_id;
+            $notification->save();
         }
         // follow_idがPOSTされた場合（フォロー外す）
         if(isset($request->follow_id)){
             $follow = Follow::find($request->follow_id);
             $follow->status = 'delete';
             $follow->save();
+
+            $followed_user_id = $follow->followed_user_id;
+            $follow_user_id = $follow->follow_user_id;
+
+            $notification = Notification::where('status', 'active')->where('received_user_id', $followed_user_id)->where('sent_user_id', $follow_user_id)->where('post_id', null)->first();
+            $notification->status = 'delete';
+            $notification->save();
         }
 
         $param = [
