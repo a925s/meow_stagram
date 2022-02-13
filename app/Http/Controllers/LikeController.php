@@ -43,8 +43,8 @@ class LikeController extends Controller
             $like->save();
             $like_id = $like->id;
 
-            $post_user = Post::find($post_id);
-            $post_user_id = $post_user->id;
+            $post = Post::find($post_id);
+            $post_user_id = $post->user->id;
 
             $notification = new Notification;
             $notification->received_user_id = $post_user_id;

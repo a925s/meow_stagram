@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 Route::get('/sns', 'PostController@getHomePost');
 
+Route::get('/like', 'LikeController@like');
 Route::post('/like', 'LikeController@like');
 
 Route::post('/bookmark', 'BookmarkController@bookmark');
