@@ -797,12 +797,16 @@ notification
 
 .notifications-box .notification-box .notification .users-icon .user-icon {
     width: 50px;
+    height: 50px;
     margin-right: 10px;
 }
 
 .notifications-box .notification-box .notification .users-icon .user-icon img {
     width: 100%;
+    height: 100%;
     border-radius: 50%;
+    object-fit: contain;
+    border: 0.2px solid #aaa;
 }
 
 .notifications-box .notification-box .notification p {

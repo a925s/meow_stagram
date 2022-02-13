@@ -31,6 +31,11 @@ class Post extends Model
         return $this->hasMany('App\Bookmark');
     }
 
+    public function notifications()
+    {
+        return $this->hasMany('App\Notification');
+    }
+
     // data-like-idの値
     public function post_like_id() 
     {

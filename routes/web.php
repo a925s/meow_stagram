@@ -31,9 +31,7 @@ Route::post('/follow', 'FollowController@follow');
 
 Route::get('/search/{type?}', 'PostController@getSearchPost');
 
-Route::get('/notification', function () {
-    return view('main.notification');
-});
+Route::get('/notification', 'NotificationController@getNotification');
 
 Route::get('/message', function () {
     return view('main.message');

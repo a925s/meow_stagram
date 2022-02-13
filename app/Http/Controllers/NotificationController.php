@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Notification;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Auth;
+
 class NotificationController extends Controller
 {
     /**
@@ -15,5 +17,21 @@ class NotificationController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+    }
+
+    /**
+     *  通知表示
+     * 
+     *  @param Request $request
+     *  @return Response
+     */
+    public function getNotification(Request $request)
+    {
+        $user_id = Auth::id();
+        $notifications = Notification::where('received_user_id', $user_id)->where('status', 'active')->orderBy('created_at', 'desc')->get(); 
+
+        return view('main.notification', [
+            'notifications' => $notifications,
+        ]);
     }
 }
