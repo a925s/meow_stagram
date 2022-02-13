@@ -31,7 +31,9 @@ class PostController extends Controller
     public function getHomePost(Request $request)
     {
         $user = Auth::user();
-        $posts = Post::whereIn('user_id', $user->follow()->pluck('followed_user_id'))->orderBy('created_at', 'desc')->get();
+        $home_ids = $user->follow()->pluck('followed_user_id');
+        $home_ids[] = $user->id;
+        $posts = Post::whereIn('user_id', $home_ids)->orderBy('created_at', 'desc')->get();
 
         return view('main.home', [
             'user' => $user,
