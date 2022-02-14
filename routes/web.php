@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Route::get('/sns', 'PostController@getHomePost');
@@ -33,10 +33,6 @@ Route::post('/follow', 'FollowController@follow');
 Route::get('/search/{type?}', 'PostController@getSearchPost');
 
 Route::get('/notification', 'NotificationController@getNotification');
-
-Route::get('/message', function () {
-    return view('main.message');
-});
 
 Route::post('/post', 'PostController@post');
 

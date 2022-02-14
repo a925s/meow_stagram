@@ -174,10 +174,6 @@
                                         </div>
                                     @endif
 
-                                        <div class="photo-icon">
-                                            <img src="{{ asset('/img/send.png') }}" alt="メッセージアイコン">
-                                        </div>
-
                                     @if(is_null($post->post_bookmark_id()))
                                         <div class="photo-bookmark-icon js-bookmark" data-post-id="{{ $post->id }}" data-bookmark-id="null">
                                             <img src="{{ asset('/img/bookmark.svg') }}">
@@ -289,10 +285,6 @@
                                             <img src="{{ asset('/img/like-red.png') }}">
                                         </div>
                                     @endif
-
-                                        <div class="photo-icon">
-                                            <img src="{{ asset('/img/send.png') }}" alt="メッセージアイコン">
-                                        </div>
 
                                     @if(is_null($bookmark->post->post_bookmark_id()))
                                         <div class="photo-bookmark-icon js-bookmark" data-post-id="{{ $bookmark->post_id }}" data-bookmark-id="null">
