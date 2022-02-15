@@ -18,11 +18,12 @@ class CreateNotificationsTable extends Migration
             $table->string('status')->default('active')->index();
             $table->bigInteger('received_user_id')->unsigned()->index();
             $table->bigInteger('sent_user_id')->unsigned()->index();
-            $table->string('message');
+            $table->bigInteger('post_id')->unsigned()->nullable()->default(null)->index();
             $table->timestamps();
 
             $table->foreign('received_user_id')->references('id')->on('users')->onUpdate('CASCADE')->onDelete('CASCADE');
             $table->foreign('sent_user_id')->references('id')->on('users')->onUpdate('CASCADE')->onDelete('CASCADE');
+            $table->foreign('post_id')->references('id')->on('posts')->onUpdate('CASCADE')->onDelete('CASCADE');
         });
     }
 

@@ -15,7 +15,6 @@ class UpdateUserTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('nickname')->index();
-            $table->string('image_name')->nullable()->default(null);
             $table->string('image_path')->nullable()->default(null);
         });
     }

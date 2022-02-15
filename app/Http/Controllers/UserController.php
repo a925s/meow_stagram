@@ -80,7 +80,6 @@ class UserController extends Controller
             if($upload_image){
                 $path = $upload_image->store('uploads', "public");
                 if($path){
-                    $user->image_name = $upload_image->getClientOriginalName();
                     $user->image_path = $path;
                 }
             }
