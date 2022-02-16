@@ -272,6 +272,7 @@ main_post
     display: flex;
     justify-content: flex-start;
     height: 60px;
+    position: relative;
 }
 
 .posts-box .post-box .name .post-my-icon {
@@ -313,6 +314,17 @@ main_post
     margin-left: 10px;
     color: #A8998C;
     font-size: 15px;
+}
+
+.posts-box .post-box .name .menu-icon {
+    width: 25px;
+    position: absolute;
+    top: 14px;
+    right: 10px;
+}
+
+.posts-box .post-box .name .menu-icon img {
+    width: 100%;
 }
 
 .posts-box .post-box .photo {
@@ -627,7 +639,7 @@ search
     line-height: 70px;
 }
 
-.search-box .search .search-area{
+.search-box .search .search-area {
     display: flex;
     justify-content: space-evenly;
     margin: 20px 20px 0;
@@ -847,74 +859,6 @@ notification
 }
 
 /**
-message
-****/
-.messages a {
-    display: block;
-    height: 100px;
-    text-decoration: none;
-}
-
-.messages .message-box {
-    height: 100px;
-    display: flex;
-    border-bottom: 0.1px solid #A8998C;
-    position: relative;
-}
-
-.messages .message-box .message-icon {
-    margin: 0 30px;
-    padding: 10px;
-    width: 100px;
-}
-
-.messages .message-box .message-icon img {
-    width: 100%;
-    border-radius: 50%;
-}
-
-.messages .message-box .message-name h2 {
-    color: #000000;
-    font-size: 18px;
-    margin: 20px 0 0 0;
-}
-
-.messages .message-box .message-name p {
-    font-size: 15px;
-    margin: 10px 0 0 0;
-    color: #A8998C;
-}
-
-.messages .message-box .message-name span {
-    position: absolute;
-    right: 5px;
-}
-
-@media screen and (max-width: 550px) {
-    .messages a {
-        height: 70px;
-    }
-
-    .messages .message-box {
-        height: 70px;
-    }
-
-    .messages .message-box .message-icon {
-        margin: 0 20px;
-        width: 70px;
-    }
-
-    .messages .message-box .message-name h2 {
-        font-size: 15px;
-        margin: 10px 0 0 0;
-    }
-
-    .messages .message-box .message-name p {
-        font-size: 11px;
-    }
-}
-
-/**
 post_modal
 ****/
 .mypage-posts .modal-content {
@@ -982,12 +926,14 @@ post_modal
     height: 100px;
     padding: 0;
     border-bottom: 1px solid #A8998C;
+    position: relative;
 }
 
 .mypage-posts .modal-body .modal-text-box .name .post-my-icon {
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     padding: 15px;
+    margin-top: 5px;
 }
 
 .mypage-posts .modal-body .modal-text-box .name .post-my-icon img {
@@ -999,7 +945,7 @@ post_modal
 }
 
 .mypage-posts .modal-body .modal-text-box .name .post-my-name {
-    width: calc(100% - 120px);
+    width: calc(100% - 140px);
 }
 
 .mypage-posts .modal-body .modal-text-box .name .post-my-name span {
@@ -1016,9 +962,25 @@ post_modal
     color: #A8998C;
 }
 
-.mypage-posts .modal-body .modal-text-box .name button {
-    padding-top: 15px;
-    width: 20px;
+.mypage-posts .modal-body .modal-text-box .name .menu-box {
+    width: 50px;
+}
+
+.mypage-posts .modal-body .modal-text-box .name .menu-box button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.mypage-posts .modal-body .modal-text-box .name .menu-box .menu-icon {
+    width: 30px;
+    position: absolute;
+    top: 40px;
+    right: 5px;
+}
+
+.mypage-posts .modal-body .modal-text-box .name .menu-box .menu-icon img {
+    width: 100%;
 }
 
 .mypage-posts .modal-body .modal-text-box .top-text-box {
@@ -1123,14 +1085,15 @@ post_modal
         display: flex;
         justify-content: flex-start;
         height: 100px;
-        padding: 0 10px;
         border-bottom: 1px solid #A8998C;
+        position: relative;
     }
 
     .top-name .post-my-icon {
-        width: 100px;
-        height: 100px;
+        width: 90px;
+        height: 90px;
         padding: 15px;
+        margin-top: 5px;
     }
 
     .top-name .post-my-icon img {
@@ -1142,7 +1105,7 @@ post_modal
     }
 
     .top-name .post-my-name {
-        width: calc(100% - 100px);
+        width: calc(100% - 130px);
     }
 
     .top-name .post-my-name span {
@@ -1158,4 +1121,21 @@ post_modal
     .top-name .post-my-name span.user-name {
         color: #A8998C;
     }
+    .top-name .menu-box{
+    width: 40px;
+}
+    .top-name .menu-box button{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+    .top-name .menu-box .menu-icon{
+    width: 30px;
+    position: absolute;
+    top: 35px;
+    right: 5px;
+}
+    .top-name .menu-box .menu-icon img{
+    width: 100%;
+}
 }

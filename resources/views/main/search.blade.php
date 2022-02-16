@@ -119,6 +119,14 @@
                                     <span class="nickname">{{ $post->user->nickname }}</span>
                                     <span class="user-name">{{ '@'.$post->user->name }}</span>
                                 </div>
+                                <div class="menu-box">
+                                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    @if($user_id == $post->user_id)
+                                    <div class="menu-icon">
+                                        <img src="{{ asset('/img/menu.png') }}">
+                                    </div>
+                                    @endif
+                                </div>
                             </div>
                             <div class="photo"> 
                                 <div class="photo-box">
@@ -142,7 +150,14 @@
                                         <span class="nickname">{{ $post->user->nickname }}</span>
                                         <span class="user-name">{{ '@'.$post->user->name }}</span>
                                     </div>
-                                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <div class="menu-box">
+                                        <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        @if($user_id == $post->user_id)
+                                        <div class="menu-icon">
+                                            <img src="{{ asset('/img/menu.png') }}">
+                                        </div>
+                                        @endif
+                                    </div>
                                 </div>
                                 <div class="top-text-box">
                                     <p>{{ $post->body }}</p>
@@ -241,6 +256,14 @@
                                 <span class="nickname">{{ $post->user->nickname }}</span>
                                 <span class="user-name">{{ '@'.$post->user->name }}</span>
                             </div>
+                            <div class="menu-box">
+                                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                                @if($user_id == $post->user_id)
+                                <div class="menu-icon">
+                                    <img src="{{ asset('/img/menu.png') }}">
+                                </div>
+                                @endif
+                            </div>
                         </div>
                         <div class="photo"> 
                             <div class="photo-box">
@@ -264,7 +287,14 @@
                                     <span class="nickname">{{ $post->user->nickname }}</span>
                                     <span class="user-name">{{ '@'.$post->user->name }}</span>
                                 </div>
-                                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <div class="menu-box">
+                                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    @if($user_id == $post->user_id)
+                                    <div class="menu-icon">
+                                        <img src="{{ asset('/img/menu.png') }}">
+                                    </div>
+                                    @endif
+                                </div>
                             </div>
                             <div class="top-text-box">
                                 <p>{{ $post->body }}</p>

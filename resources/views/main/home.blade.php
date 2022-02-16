@@ -33,6 +33,11 @@
                             <span class="user-name">{{ '@'.$post->user->name }}</span>
                         </a>
                     </div>
+                    @if($user->id == $post->user_id)
+                    <div class="menu-icon">
+                        <img src="{{ asset('/img/menu.png') }}">
+                    </div>
+                    @endif
                 </div>
                 <div class="photo">
                     <div class="photo-box">
