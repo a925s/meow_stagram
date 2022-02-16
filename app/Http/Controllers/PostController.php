@@ -5,10 +5,13 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\Like;
 use App\User;
+use App\Image;
 
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
+
+use Illuminate\Support\Str; 
 
 class PostController extends Controller
 {
@@ -49,15 +52,38 @@ class PostController extends Controller
      */
     public function post(Request $request)
     {
-        $this->validate($request, Post::$rules);
-        $post = new Post;
-        $post->user_id = Auth::id();
-        $post->body = $request->body;
-        $post->save();
 
         //ファイルの保存
-        if($request->post_img->extension() == 'gif' || $request->post_img->extension() == 'jpeg' || $request->post_img->extension() == 'jpg' || $request->post_img->extension() == 'png' || $request->post_img->extension() == 'mp4' || $request->post_img->extension() == 'mov' || $request->post_img->extension() == 'wmv'){
-            $request->file('post_img')->storeAs('public/post_img', $post->id.'.'.$request->post_img->extension());
+        if($request->post_img->extension() == 'gif' || $request->post_img->extension() == 'jpeg' || $request->post_img->extension() == 'jpg' || $request->post_img->extension() == 'png'){
+            $this->validate($request, Post::$rules);
+            $post = new Post;
+            $post->user_id = Auth::id();
+            $post->body = $request->body;
+            $post->save();
+
+            $post_image = $request->file('post_img');
+            $image_name = Str::random(20).'.'.$post_image->getClientOriginalExtension();
+            \Image::make($post_image)->resize(500, null, function ($constraint) {$constraint->aspectRatio();})->save(public_path('storage/images/' . $image_name));
+            
+            $image = new Image;
+            $image->image_path = 'images/' . $image_name;
+            $image->post_id = $post->id;
+            $image->save();
+
+        }
+
+        if($request->post_img->extension() == 'mp4' || $request->post_img->extension() == 'mov' || $request->post_img->extension() == 'wmv'){
+            $this->validate($request, Post::$rules);
+            $post = new Post;
+            $post->user_id = Auth::id();
+            $post->body = $request->body;
+            $post->save();
+
+            $path = $request->file('post_img')->store('images', "public");
+            $image = new Image;
+            $image->image_path = $path;
+            $image->post_id = $post->id;
+            $image->save();
         }
         
         return back();

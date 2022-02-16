@@ -36,20 +36,10 @@
                 </div>
                 <div class="photo">
                     <div class="photo-box">
-                        @if(file_exists(public_path().'/storage/post_img/'. $post->id .'.jpg'))
-                            <img src="/storage/post_img/{{ $post->id }}.jpg">
-                        @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.jpeg'))
-                            <img src="/storage/post_img/{{ $post->id }}.jpeg">
-                        @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.png'))
-                            <img src="/storage/post_img/{{ $post->id }}.png">
-                        @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.gif'))
-                            <img src="/storage/post_img/{{ $post->id }}.gif">
-                        @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.mp4'))
-                            <video src="/storage/post_img/{{ $post->id }}.mp4" autoplay loop playsinline></video>
-                        @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.mov'))
-                            <video src="/storage/post_img/{{ $post->id }}.mov" autoplay loop playsinline></video>
-                        @elseif(file_exists(public_path().'/storage/post_img/'. $post->id .'.wmv'))
-                            <video src="/storage/post_img/{{ $post->id }}.wmv" autoplay loop playsinline></video>
+                        @if(pathinfo($post->image->image_path, PATHINFO_EXTENSION) == 'gif' || pathinfo($post->image->image_path, PATHINFO_EXTENSION) == 'jpeg' || pathinfo($post->image->image_path, PATHINFO_EXTENSION) == 'jpg' || pathinfo($post->image->image_path, PATHINFO_EXTENSION) == 'png')
+                            <img src="{{ Storage::url($post->image->image_path) }}">
+                        @elseif(pathinfo($post->image->image_path, PATHINFO_EXTENSION) == 'mp4' || pathinfo($post->image->image_path, PATHINFO_EXTENSION) == 'mov' || pathinfo($post->image->image_path, PATHINFO_EXTENSION) == 'wmv')
+                            <video src="{{ Storage::url($post->image->image_path) }}" autoplay loop playsinline></video>
                         @endif
                     </div>
                 </div>
