@@ -1029,6 +1029,33 @@ post_modal
     font-weight: bold;
 }
 
+.delete-modal {
+    background-color: #78614D;
+    max-width:300px;
+    margin:auto;
+}
+
+.delete-modal .modal-body {
+    height: 100px;
+}
+
+.delete-modal .modal-body p {
+    line-height: 100px;
+    color: #ffffff;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.home-delete-modal{
+    max-width: 300px;
+    margin: auto;
+    height: 200px;
+}
+.home-delete-modal .modal-body{line-height: 80px;}
+.home-delete-modal .modal-body p{
+    font-size: 20px;
+    font-weight: bold;
+}
 @media screen and (max-width: 992px) {
     .mypage-posts .modal-dialog {
         max-width: none;
@@ -1121,21 +1148,25 @@ post_modal
     .top-name .post-my-name span.user-name {
         color: #A8998C;
     }
-    .top-name .menu-box{
-    width: 40px;
-}
-    .top-name .menu-box button{
-    position: absolute;
-    top: 5px;
-    right: 5px;
-}
-    .top-name .menu-box .menu-icon{
-    width: 30px;
-    position: absolute;
-    top: 35px;
-    right: 5px;
-}
-    .top-name .menu-box .menu-icon img{
-    width: 100%;
-}
+
+    .top-name .menu-box {
+        width: 40px;
+    }
+
+    .top-name .menu-box button {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+    }
+
+    .top-name .menu-box .menu-icon {
+        width: 30px;
+        position: absolute;
+        top: 35px;
+        right: 5px;
+    }
+
+    .top-name .menu-box .menu-icon img {
+        width: 100%;
+    }
 }

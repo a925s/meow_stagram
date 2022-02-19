@@ -259,7 +259,7 @@
                             <div class="menu-box">
                                 <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                                 @if($user_id == $post->user_id)
-                                <div class="menu-icon">
+                                <div class="menu-icon" data-bs-toggle="modal" data-bs-target="#delete-modal-{{ $post->id }}">
                                     <img src="{{ asset('/img/menu.png') }}">
                                 </div>
                                 @endif
@@ -290,7 +290,7 @@
                                 <div class="menu-box">
                                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                                     @if($user_id == $post->user_id)
-                                    <div class="menu-icon">
+                                    <div class="menu-icon" data-bs-toggle="modal" data-bs-target="#delete-modal-{{ $post->id }}">
                                         <img src="{{ asset('/img/menu.png') }}">
                                     </div>
                                     @endif
@@ -325,6 +325,22 @@
                                 <p class="like-count">いいね！<span class="js-like-count">{{ $post->like_count() }}</span>件</p>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="delete-modal-{{ $post->id }}" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content delete-modal">
+                    <div class="modal-body">
+                        <p class="text-center">投稿を削除しますか？</p>
+                    </div>
+                    <div class="modal-footer">
+                        <form action="/delete" method="post" enctype="multipart/form-data">
+                            @csrf
+                            <button class="btn btn-reverse" data-bs-dismiss="modal">キャンセル</button>
+                            <button class="btn" type="submit">削除する</button>
+                        </form>
                     </div>
                 </div>
             </div>
