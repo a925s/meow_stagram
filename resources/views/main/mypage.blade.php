@@ -192,6 +192,7 @@
                         <div class="modal-footer">
                             <form action="/delete" method="post" enctype="multipart/form-data">
                                 @csrf
+                                <input type="hidden" name="id" value="{{ $post->id }}">
                                 <button class="btn btn-reverse" data-bs-dismiss="modal">キャンセル</button>
                                 <button class="btn" type="submit">削除する</button>
                             </form>
@@ -315,6 +316,7 @@
                         <div class="modal-footer">
                             <form action="/delete" method="post" enctype="multipart/form-data">
                                 @csrf
+                                <input type="hidden" name="id" value="{{ $bookmark->post->id }}">
                                 <button class="btn btn-reverse" data-bs-dismiss="modal">キャンセル</button>
                                 <button class="btn" type="submit">削除する</button>
                             </form>

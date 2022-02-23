@@ -36,6 +36,8 @@ Route::get('/notification', 'NotificationController@getNotification');
 
 Route::post('/post', 'PostController@post');
 
+Route::post('/delete', 'PostController@delete');
+
 
 Auth::routes();
 

@@ -36,7 +36,7 @@ class PostController extends Controller
         $user = Auth::user();
         $home_ids = $user->follow()->pluck('followed_user_id');
         $home_ids[] = $user->id;
-        $posts = Post::whereIn('user_id', $home_ids)->orderBy('created_at', 'desc')->get();
+        $posts = Post::whereIn('user_id', $home_ids)->orderBy('created_at', 'desc')->simplePaginate(50);
 
         return view('main.home', [
             'user' => $user,
@@ -106,21 +106,21 @@ class PostController extends Controller
                 $user_ids = User::where('name', 'LIKE', "%{$keyword}%")->orWhere('nickname', 'LIKE', "%{$keyword}%")->pluck('id')->toArray();
                 $posts = Post::whereIn('user_id', $user_ids)->where('status', 'active')->withCount('likes')->where('status', 'active')->orderBy('likes_count', 'desc')->get();
             }else{
-                $posts = Post::where('status', 'active')->withCount('likes')->where('status', 'active')->orderBy('likes_count', 'desc')->get(); // like-count順
+                $posts = Post::where('status', 'active')->withCount('likes')->where('status', 'active')->orderBy('likes_count', 'desc')->simplePaginate(50); // like-count順
             }
         }elseif($type == 'new'){
             if(isset($keyword)){
                 $user_ids = User::where('name', 'LIKE', "%{$keyword}%")->orWhere('nickname', 'LIKE', "%{$keyword}%")->pluck('id')->toArray();
                 $posts = Post::whereIn('user_id', $user_ids)->where('status', 'active')->orderBy('created_at', 'desc')->get();
             }else{
-                $posts = Post::where('status', 'active')->orderBy('created_at', 'desc')->get(); // created_at順
+                $posts = Post::where('status', 'active')->orderBy('created_at', 'desc')->simplePaginate(50); // created_at順
             }
         }else{
             if(isset($keyword)){
                 $user_ids = User::where('name', 'LIKE', "%{$keyword}%")->orWhere('nickname', 'LIKE', "%{$keyword}%")->pluck('id')->toArray();
                 $posts = Post::whereIn('user_id', $user_ids)->where('status', 'active')->orderBy('created_at', 'desc')->get();
             }else{
-                $posts = Post::where('status', 'active')->inRandomOrder()->get(); // ランダム
+                $posts = Post::where('status', 'active')->inRandomOrder()->simplePaginate(50); // ランダム
             }
         }
 
@@ -138,5 +138,17 @@ class PostController extends Controller
                 'type' => $type,
             ]);
         }
+    }
+
+    /**
+     *  投稿削除
+     * 
+     *  @param Request $request
+     *  @return Response
+     */
+    public function delete(Request $request)
+    {
+        Post::find($request->id)->delete();
+        return back();
     }
 }

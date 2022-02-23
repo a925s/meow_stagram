@@ -28,7 +28,7 @@ class NotificationController extends Controller
     public function getNotification(Request $request)
     {
         $user_id = Auth::id();
-        $notifications = Notification::where('sent_user_id', '!=', $user_id)->where('received_user_id', $user_id)->where('status', 'active')->orderBy('created_at', 'desc')->get(); 
+        $notifications = Notification::where('sent_user_id', '!=', $user_id)->where('received_user_id', $user_id)->where('status', 'active')->orderBy('created_at', 'desc')->simplePaginate(10); 
 
         return view('main.notification', [
             'user_id' => $user_id,

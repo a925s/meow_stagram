@@ -192,6 +192,23 @@
                     </div>
                 </div>
             </div>
+            <div class="modal fade" id="delete-modal-{{ $post->id }}" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content delete-modal">
+                        <div class="modal-body">
+                            <p class="text-center">投稿を削除しますか？</p>
+                        </div>
+                        <div class="modal-footer">
+                            <form action="/delete" method="post" enctype="multipart/form-data">
+                                @csrf
+                                <input type="hidden" name="id" value="{{ $post->id }}">
+                                <button class="btn btn-reverse" data-bs-dismiss="modal">キャンセル</button>
+                                <button class="btn" type="submit">削除する</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
             @endif
         @else
         <div class="post-box" data-bs-toggle="modal" data-bs-target="#post-modal-{{ $post->id }}" data-hover-id="{{ $post->id }}">
@@ -338,6 +355,7 @@
                     <div class="modal-footer">
                         <form action="/delete" method="post" enctype="multipart/form-data">
                             @csrf
+                            <input type="hidden" name="id" value="{{ $post->id }}">
                             <button class="btn btn-reverse" data-bs-dismiss="modal">キャンセル</button>
                             <button class="btn" type="submit">削除する</button>
                         </form>
